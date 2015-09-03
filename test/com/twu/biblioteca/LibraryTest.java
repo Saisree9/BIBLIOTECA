@@ -9,6 +9,7 @@ public class LibraryTest {
 
     @Test
     public void test() {
+        Library library=new Library();
         assertEquals(1, 1);
     }
 }
