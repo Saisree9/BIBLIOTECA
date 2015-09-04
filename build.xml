@@ -1,35 +1,74 @@
 <?xml version = "1.0"?>
-<project name="TWU_Biblioteca">
+
+<project name="TWU_Biblioteca" default="runjUnit" basedir="." xmlns:jacoco="antlib:org.jacoco.ant">
+
+    <property name="result.report.dir" location="report/" />
+
+    <taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
+        <classpath path="lib/jacocoant.jar"/>
+    </taskdef>
+
     <target name="build" depends="clean">
         <mkdir dir="out"/>
         <javac destdir="out">
             <src path="src;test"/>
             <classpath location="lib/junit-4.11.jar"/>
+            <classpath location="lib/hamcrest-core-1.3.jar"/>
             <classpath location="lib/mockito-all-1.9.5.jar"/>
+            <classpath location="lib/powermock-mockito-1.4.8-full.jar"/>
         </javac>
     </target>
 
     <target name="clean" description="clean previous output directory">
         <delete dir="out"/>
     </target>
+
     <target name="runjUnit" depends="build">
-        <junit printsummary="yes"
-               fork="yes"
-               haltonfailure="yes"
-               showoutput="true"
-               outputtoformatters="true">
-            <classpath>
-                <pathelement location="lib/junit-4.11.jar"/>
-                <pathelement location="lib/hamcrest-library-1.3.jar"/>
-                <pathelement location="lib/hamcrest-core-1.3.jar"/>
-                <pathelement location="lib/mockito-all-1.9.5.jar"/>
-                <pathelement location="out"/>
-            </classpath>
-            <batchtest filtertrace="false">
-                <fileset dir="${basedir}/out" includes="**/*Test.class"/>
-            </batchtest>
-            <formatter type="plain" usefile="false"/>
-        </junit>
+        <jacoco:coverage destfile="jacoco.exec">
+            <junit printsummary="yes" haltonfailure="true" fork="true" forkmode="once">
+                <classpath>
+                    <pathelement location="lib/junit-4.11.jar"/>
+                    <pathelement location="lib/hamcrest-core-1.3.jar"/>
+                    <pathelement location="lib/mockito-all-1.9.5.jar"/>
+                    <pathelement location="lib/powermock-mockito-1.4.8-full.jar"/>
+                    <pathelement location="out"/>
+                </classpath>
+
+                <batchtest fork="yes">
+                    <formatter type="plain" usefile="false"/>
+                    <fileset dir="test">
+                        <include name="**/*Test.java"/>
+                    </fileset>
+                </batchtest>
+            </junit>
+        </jacoco:coverage>
+
+        <jacoco:report>
+
+            <executiondata>
+                <file file="jacoco.exec" />
+            </executiondata>
+
+            <structure name="AntTestReporting">
+                <classfiles>
+                    <fileset dir="out/" />
+                </classfiles>
+            </structure>
+
+            <html destdir="${coverage.reports.dir}" />
+            <xml destfile="${coverage.reports.dir}/report.xml" />
+        </jacoco:report>
+
     </target>
 
 </project>
+
+
+
+
+
+
+
+
+
+
