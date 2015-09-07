@@ -19,4 +19,11 @@ public class DisplayTest {
         display.display("WELCOME TO PUBLIC LIBRARY");
         Mockito.verify(display, times(1)).display("WELCOME TO PUBLIC LIBRARY");
     }
+    @Test
+    public void shouldDisplayBookDetails() {
+        System.setOut(new PrintStream(output));
+        Display display = mock(Display.class);
+        display.display("Harry Potter");
+        Mockito.verify(display, times(1)).display("Harry Potter");
+    }
 }
