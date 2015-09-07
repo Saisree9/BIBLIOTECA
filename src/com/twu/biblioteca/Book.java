@@ -18,6 +18,6 @@ public class Book {
                 "title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", yearPublished=" + yearPublished +
-                '}'+"\n";
+                '}' + "\n";
     }
 }

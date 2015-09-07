@@ -10,17 +10,25 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        Display display = new Display();
+        Console console = new Console();
 
-        bibliotecaApp.start(display);
+        bibliotecaApp.start(console);
     }
 
-    public void start(Display display) {
-        display.display("WELCOME TO PUBLIC LIBRARY\n");
+    public void start(Console console) {
+        console.display("WELCOME TO PUBLIC LIBRARY\n");
         listOfBooks.add(new Book("Java design patterns", "pankaj", 1887));
         listOfBooks.add(new Book("Head First Java", "Bert", 1991));
         Library library = new Library(listOfBooks);
-        display.display(library.toString());
+        String option = selectOption(console);
+        if (option.equals("1"))
+            console.display(library.toString());
+
+    }
+
+    public String selectOption(Console console) {
+        console.display("Option1:ListBooks\nEnter the option:");
+        return console.getUserInput();
     }
 
 }

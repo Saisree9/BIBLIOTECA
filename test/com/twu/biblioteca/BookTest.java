@@ -12,7 +12,7 @@ public class BookTest {
                 "title='" + "Head First Java" + '\'' +
                 ", author='" + "Bert" + '\'' +
                 ", yearPublished=" + 1991 +
-                '}'+"\n", book.toString());
+                '}' + "\n", book.toString());
     }
 
 }
