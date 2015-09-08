@@ -3,10 +3,14 @@ package com.twu.biblioteca;
 import java.util.List;
 
 public class Library {
-    private List listOfBooks;
+    private List<Book> listOfBooks;
 
-    public Library(List list) {
+    public Library(List<Book> list) {
         this.listOfBooks = list;
+    }
+
+    public boolean isBookExist(Book searchingBook) {
+     return listOfBooks.contains(searchingBook);
     }
 
     @Override

@@ -32,9 +32,8 @@ public class ConsoleTest {
 
     @Test
     public void shouldReadInputFromUser() {
-        String userInput = "1";
         Console input = mock(Console.class);
-        when(input.getUserInput()).thenReturn(userInput);
-        assertEquals(userInput, input.getUserInput());
+        when(input.getUserInput()).thenReturn(1);
+        assertEquals(1, input.getUserInput());
     }
 }

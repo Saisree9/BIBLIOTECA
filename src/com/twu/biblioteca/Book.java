@@ -20,4 +20,21 @@ public class Book {
                 ", yearPublished=" + yearPublished +
                 '}' + "\n";
     }
+
+    @Override
+    public boolean equals(Object that) {
+        if (this == that) return true;
+        if (that == null || getClass() != that.getClass()) return false;
+
+        Book thatBook = (Book) that;
+        return title.equals(thatBook.title);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = title != null ? title.hashCode() : 0;
+        result = 31 * result + (author != null ? author.hashCode() : 0);
+        result = 31 * result + yearPublished;
+        return result;
+    }
 }
