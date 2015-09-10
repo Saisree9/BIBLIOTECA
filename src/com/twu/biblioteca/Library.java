@@ -10,17 +10,27 @@ public class Library {
     }
 
     public boolean isBookExist(Book searchingBook) {
-     return listOfBooks.contains(searchingBook);
+        for (Book book : listOfBooks) {
+            if (book.equals(searchingBook))
+            return true;
+        }
+        return false;
     }
 
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        String string;
         for (Object book : listOfBooks) {
             stringBuilder.append(book.toString());
         }
-        string = new String(stringBuilder);
-        return string;
+        return stringBuilder.toString();
+    }
+
+    public String checkOut(Book book) {
+        if (isBookExist(book)) {
+            listOfBooks.remove(book);
+            return "Thank you ! Enjoy the book\n";
+        }
+        return "That book is not available\n";
     }
 }

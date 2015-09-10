@@ -11,14 +11,12 @@ public class Book {
         this.yearPublished = yearPublished;
     }
 
-
     @Override
     public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
+        return "title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", yearPublished=" + yearPublished +
-                '}' + "\n";
+                "\n";
     }
 
     @Override
@@ -37,4 +35,5 @@ public class Book {
         result = 31 * result + yearPublished;
         return result;
     }
+
 }

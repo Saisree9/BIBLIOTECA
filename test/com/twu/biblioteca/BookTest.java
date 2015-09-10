@@ -8,11 +8,10 @@ public class BookTest {
     @Test
     public void shouldReturnToStringFormatOfBook() {
         Book book = new Book("Head First Java", "Bert", 1991);
-        assertEquals("Book{" +
-                "title='" + "Head First Java" + '\'' +
+        assertEquals("title='" + "Head First Java" + '\'' +
                 ", author='" + "Bert" + '\'' +
                 ", yearPublished=" + 1991 +
-                '}' + "\n", book.toString());
+                 "\n", book.toString());
     }
 
     @Test

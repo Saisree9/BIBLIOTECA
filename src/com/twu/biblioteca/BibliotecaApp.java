@@ -22,20 +22,23 @@ public class BibliotecaApp {
         listOfBooks.add(new Book("Head First Java", "Bert", 1991));
         Library library = new Library(listOfBooks);
         while (true) {
-            console.display("Option1:ListBooks\nOption2:Quit\nEnterTheOption:");
+            console.display("Option1:ListBooks\nOption2:Quit\nOption3:CheckOut\nOption4:Return\nEnterTheOption:");
             mainMenu = getMainMenuWithOption(console);
             mainMenu.doOperation(library, console);
         }
     }
 
     public MainMenu getMainMenuWithOption(Console console) {
-        int option = console.getUserInput();
+        int option = Integer.parseInt(console.getUserInput());
         switch (option) {
             case 1:
                 mainMenu = new MainMenu(new ListBooksOption());
                 break;
             case 2:
                 mainMenu = new MainMenu(new Quit());
+                break;
+            case 3:
+                mainMenu = new MainMenu(new CheckOutOption());
                 break;
             default:
                 mainMenu = new MainMenu(new InvalidMenuOption());

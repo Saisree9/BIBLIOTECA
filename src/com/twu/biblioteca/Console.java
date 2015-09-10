@@ -9,8 +9,8 @@ public class Console {
         System.out.print(message);
     }
 
-    public int getUserInput() {
+    public String getUserInput() {
         Scanner scanner = new Scanner(System.in);
-        return scanner.nextInt();
+        return scanner.nextLine();
     }
 }
