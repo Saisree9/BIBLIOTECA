@@ -56,4 +56,20 @@ public class LibraryTest {
         String returnMessage = library.checkOut(book);
         assertEquals("Thank you ! Enjoy the book\n", returnMessage);
     }
+
+    @Test
+    public void shouldReturnMessageAfterCheckingOutBookIfBookIsSuccessfullyReturned() {
+        Book book = new Book("Java design patterns", "UNKNOWN_AUTHOR", 0);
+        library.checkOut(book);
+        String returnMessage = library.returnBook(book);
+        assertEquals("Thank You ! for returning book\n", returnMessage);
+    }
+
+    @Test
+    public void shouldReturnMessageAfterCheckingOutBookIfBookIsUnsuccessfullyReturned() {
+        Book book = new Book("Java design", "UNKNOWN_AUTHOR", 0);
+        library.checkOut(book);
+        String returnMessage = library.returnBook(book);
+        assertEquals("That is not a valid book to return\n", returnMessage);
+    }
 }

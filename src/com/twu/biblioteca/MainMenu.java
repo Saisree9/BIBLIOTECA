@@ -7,7 +7,19 @@ public class MainMenu {
         this.mainMenuOption = mainMenuOption;
     }
 
-    public void doOperation(Library library, Console console) {
-        mainMenuOption.doOperation(library, console);
+    public void doOperation() {
+        mainMenuOption.doOperation();
     }
+
+    @Override
+    public boolean equals(Object that) {
+        if (this == that) return true;
+        if (that == null || getClass() != that.getClass()) return false;
+
+        MainMenu thatMainMenu = (MainMenu) that;
+
+        return (thatMainMenu.mainMenuOption.getClass()).equals((this.mainMenuOption).getClass());
+
+    }
+
 }

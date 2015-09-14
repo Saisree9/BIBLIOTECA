@@ -7,7 +7,7 @@ import java.util.List;
 public class BibliotecaApp {
 
     private List<Book> listOfBooks = new ArrayList<Book>();
-    private MainMenu mainMenu;
+    private Delegator delegator = new Delegator();
 
 
     public static void main(String[] args) {
@@ -17,32 +17,15 @@ public class BibliotecaApp {
     }
 
     public void start(Console console) {
+        MainMenu mainMenu;
         console.display("WELCOME TO PUBLIC LIBRARY\n");
         listOfBooks.add(new Book("Java design patterns", "pankaj", 1887));
         listOfBooks.add(new Book("Head First Java", "Bert", 1991));
         Library library = new Library(listOfBooks);
         while (true) {
             console.display("Option1:ListBooks\nOption2:Quit\nOption3:CheckOut\nOption4:Return\nEnterTheOption:");
-            mainMenu = getMainMenuWithOption(console);
-            mainMenu.doOperation(library, console);
+            mainMenu = delegator.getMainMenuWithOption(console, library);
+            mainMenu.doOperation();
         }
-    }
-
-    public MainMenu getMainMenuWithOption(Console console) {
-        int option = Integer.parseInt(console.getUserInput());
-        switch (option) {
-            case 1:
-                mainMenu = new MainMenu(new ListBooksOption());
-                break;
-            case 2:
-                mainMenu = new MainMenu(new Quit());
-                break;
-            case 3:
-                mainMenu = new MainMenu(new CheckOutOption());
-                break;
-            default:
-                mainMenu = new MainMenu(new InvalidMenuOption());
-        }
-        return mainMenu;
     }
 }

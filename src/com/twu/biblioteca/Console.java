@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 import java.util.Scanner;
 
-//Console the message
+//Read the input and display the message
 public class Console {
 
     public void display(String message) {

@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -14,48 +15,68 @@ public class MainMenuTest {
     public void shouldDoListBooksOperationWhenListBooksOptionIsSelected() {
         MainMenuOption listBooksOption = mock(ListBooksOption.class);
         MainMenu mainMenu = new MainMenu(listBooksOption);
-        List<Book> listOfBooks = new ArrayList<Book>();
-        Book book1 = new Book("Java design patterns", "pankaj", 1887);
-        Book book2 = new Book("Head First Java", "Bert", 1991);
-        listOfBooks.add(book1);
-        listOfBooks.add(book2);
-        Library library = new Library(listOfBooks);
-        Console console = mock(Console.class);
-        mainMenu.doOperation(library, console);
 
-        verify(listBooksOption).doOperation(library, console);
+        mainMenu.doOperation();
+
+        verify(listBooksOption).doOperation();
     }
 
     @Test
     public void shouldDoInvalidMenuOperationWhenInvalidOptionIsSelected() {
         MainMenuOption invalidMenuOption = mock(InvalidMenuOption.class);
         MainMenu mainMenu = new MainMenu(invalidMenuOption);
-        List<Book> listOfBooks = new ArrayList<Book>();
-        Book book1 = new Book("Java design patterns", "pankaj", 1887);
-        Book book2 = new Book("Head First Java", "Bert", 1991);
-        listOfBooks.add(book1);
-        listOfBooks.add(book2);
-        Library library = new Library(listOfBooks);
-        Console console = mock(Console.class);
-        mainMenu.doOperation(library, console);
 
-        verify(invalidMenuOption).doOperation(library, console);
+        mainMenu.doOperation();
+
+        verify(invalidMenuOption).doOperation();
     }
 
     @Test
     public void shouldDoQuitOperationWhenQuitOptionIsSelected() {
         MainMenuOption quit = mock(Quit.class);
         MainMenu mainMenu = new MainMenu(quit);
-        List<Book> listOfBooks = new ArrayList<Book>();
-        Book book1 = new Book("Java design patterns", "pankaj", 1887);
-        Book book2 = new Book("Head First Java", "Bert", 1991);
-        listOfBooks.add(book1);
-        listOfBooks.add(book2);
-        Library library = new Library(listOfBooks);
-        Console console = mock(Console.class);
-        mainMenu.doOperation(library, console);
 
-        verify(quit).doOperation(library, console);
+        mainMenu.doOperation();
+
+        verify(quit).doOperation();
+    }
+
+    @Test
+    public void shouldDoCheckOutOperationWhenCheckOutOptionIsSelected() {
+        MainMenuOption checkOutOption = mock(CheckOutOption.class);
+        MainMenu mainMenu = new MainMenu(checkOutOption);
+
+        mainMenu.doOperation();
+
+        verify(checkOutOption).doOperation();
+    }
+
+    @Test
+    public void shouldDoReturnOperationWhenReturnOptionIsSelected() {
+        MainMenuOption returnOption = mock(ReturnOption.class);
+        MainMenu mainMenu = new MainMenu(returnOption);
+
+        mainMenu.doOperation();
+
+        verify(returnOption).doOperation();
+    }
+
+    @Test
+    public void shouldEqualToItself() {
+        MainMenuOption quitOption = new Quit();
+        MainMenu mainMenu = new MainMenu(quitOption);
+
+        assertEquals(mainMenu, mainMenu);
+    }
+
+    @Test
+    public void shouldEqualToMainMenuHavingSameMainMenuOption() {
+        MainMenuOption quitOption = new Quit();
+        MainMenu mainMenu1 = new MainMenu(quitOption);
+        MainMenu mainMenu2 = new MainMenu(quitOption);
+
+
+        assertEquals(mainMenu1, mainMenu2);
     }
 
 }

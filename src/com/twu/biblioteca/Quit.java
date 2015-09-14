@@ -1,8 +1,8 @@
 package com.twu.biblioteca;
 
-public class Quit implements MainMenuOption{
+public class Quit implements MainMenuOption {
     @Override
-    public void doOperation(Library library, Console console) {
+    public void doOperation() {
         System.exit(0);
     }
 }

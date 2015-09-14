@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -10,50 +11,45 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class CheckOutOptionTest {
-    @Test
-    public void shouldAskForBookTitle() {
-        MainMenuOption checkOutOption = new CheckOutOption();
+    private List<Book> listOfBooks = new ArrayList<Book>();
+    private Console console = mock(Console.class);
+    private Book book1 = new Book("Java design patterns", "pankaj", 1887);
+    private Book book2 = new Book("Head First Java", "Bert", 1991);
+    private MainMenuOption checkOutOption;
 
-        List<Book> listOfBooks = new ArrayList<Book>();
-        Book book1 = new Book("Java design patterns", "pankaj", 1887);
-        Book book2 = new Book("Head First Java", "Bert", 1991);
+
+    @Before
+    public void setUp() {
         listOfBooks.add(book1);
         listOfBooks.add(book2);
         Library library = new Library(listOfBooks);
-        Console console = mock(Console.class);
+        checkOutOption = new CheckOutOption(library, console);
+    }
+
+    @Test
+    public void shouldAskForBookTitle() {
         when(console.getUserInput()).thenReturn("Head First Java");
-        checkOutOption.doOperation(library, console);
+
+        checkOutOption.doOperation();
+
         verify(console).display("Enter booktitle to checkout: ");
     }
 
     @Test
     public void shouldCheckOutBookSuccessfullyFromLibraryIfBookExists() {
-        MainMenuOption checkOutOption = new CheckOutOption();
-
-        List<Book> listOfBooks = new ArrayList<Book>();
-        Book book1 = new Book("Java design patterns", "pankaj", 1887);
-        Book book2 = new Book("Head First Java", "Bert", 1991);
-        listOfBooks.add(book1);
-        listOfBooks.add(book2);
-        Library library = new Library(listOfBooks);
-        Console console = mock(Console.class);
         when(console.getUserInput()).thenReturn("Head First Java");
-        checkOutOption.doOperation(library, console);
+
+        checkOutOption.doOperation();
+
         verify(console).display("Thank you ! Enjoy the book\n");
     }
 
     @Test
     public void shouldCheckOutUnsuccessfullyFromLibraryIfBookNotExists() {
-        MainMenuOption checkOutOption = new CheckOutOption();
-        List<Book> listOfBooks = new ArrayList<Book>();
-        Book book1 = new Book("Java design patterns", "pankaj", 1887);
-        Book book2 = new Book("Head First Java", "Bert", 1991);
-        listOfBooks.add(book1);
-        listOfBooks.add(book2);
-        Library library = new Library(listOfBooks);
-        Console console = mock(Console.class);
         when(console.getUserInput()).thenReturn("Head");
-        checkOutOption.doOperation(library, console);
+
+        checkOutOption.doOperation();
+
         verify(console).display("That book is not available\n");
 
     }

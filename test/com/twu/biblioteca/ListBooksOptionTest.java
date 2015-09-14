@@ -12,7 +12,6 @@ public class ListBooksOptionTest {
 
     @Test
     public void shouldDisplayListOfBooksPresentInTheLibrary() {
-        MainMenuOption listBooksoption = new ListBooksOption();
         List<Book> listOfBooks = new ArrayList<Book>();
         Book book1 = new Book("Java design patterns", "pankaj", 1887);
         Book book2 = new Book("Head First Java", "Bert", 1991);
@@ -20,7 +19,8 @@ public class ListBooksOptionTest {
         listOfBooks.add(book2);
         Library library = new Library(listOfBooks);
         Console console = mock(Console.class);
-        listBooksoption.doOperation(library, console);
+        MainMenuOption listBooksoption = new ListBooksOption(library, console);
+        listBooksoption.doOperation();
         verify(console).display(library.toString());
     }
 }
