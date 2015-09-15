@@ -6,12 +6,9 @@ import java.util.List;
 public class Library {
     private List<Book> availableBookList;
     private List<Book> checkOutBookList = new ArrayList<Book>();
-    private List<Movie> availableMovies;
-    private List<Movie> checkOutMovieList = new ArrayList<Movie>();
 
-    public Library(List<Book> books, List<Movie> movies) {
+    public Library(List<Book> books) {
         this.availableBookList = books;
-        this.availableMovies = movies;
     }
 
     public boolean isBookExist(Book searchingBook) {
@@ -24,7 +21,8 @@ public class Library {
         return false;
     }
 
-    public String listBooks() {
+    @Override
+    public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         for (Object book : availableBookList) {
             stringBuilder.append(book.toString());
@@ -32,13 +30,6 @@ public class Library {
         return stringBuilder.toString();
     }
 
-    public String listMovies() {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (Object movie : availableMovies) {
-            stringBuilder.append(movie.toString());
-        }
-        return stringBuilder.toString();
-    }
 
     public String checkOutBook(Book book) {
         if (isBookExist(book)) {
@@ -66,19 +57,4 @@ public class Library {
         return false;
     }
 
-    public void checkOutMovie(Movie movie) {
-        if (isMovieExist(movie)) {
-            availableMovies.remove(movie);
-        }
-    }
-
-    public boolean isMovieExist(Movie movie) {
-        for (Movie movie1 : availableMovies) {
-            if (movie.equals(movie1)) {
-                checkOutMovieList.add(movie1);
-                return true;
-            }
-        }
-        return false;
-    }
 }

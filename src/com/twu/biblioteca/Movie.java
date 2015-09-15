@@ -4,13 +4,13 @@ public class Movie {
     private String name;
     private String director;
     private int year;
-    private double raitng;
+    private double rating;
 
-    public Movie(String name, String director, int year, double raitng) {
+    public Movie(String name, String director, int year, double rating) {
         this.name = name;
         this.director = director;
         this.year = year;
-        this.raitng = raitng;
+        this.rating = rating;
     }
 
     @Override
@@ -26,5 +26,13 @@ public class Movie {
     @Override
     public int hashCode() {
         return name != null ? name.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "name='" + name + '\'' +
+                ", director='" + director + '\'' +
+                ", year=" + year +
+                ", rating=" + rating + "\n";
     }
 }

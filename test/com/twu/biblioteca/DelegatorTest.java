@@ -17,7 +17,7 @@ public class DelegatorTest {
     private Book book1 = new Book("Java design patterns", "pankaj", 1887);
     private Book book2 = new Book("Head First Java", "Bert", 1991);
     Library library;
-    private MainMenu mainMenu;
+    private MainMenuOption mainMenuOption;
     Delegator delegator;
 
     @Before
@@ -32,57 +32,57 @@ public class DelegatorTest {
     public void shouldGetOptionInputFromUser() {
         when(console.getUserInput()).thenReturn("1");
 
-        delegator.getMainMenuWithOption(console, library);
+        delegator.getMainMenuOption(console, library);
 
         verify(console).getUserInput();
     }
 
     @Test
-    public void shouldReturnMainMenuWithListBooksOptionWhenOptionOneIsSelected() {
+    public void shouldReturnMainMenuListBooksOptionWhenOptionOneIsSelected() {
         when(console.getUserInput()).thenReturn("1");
 
-        mainMenu = delegator.getMainMenuWithOption(console, library);
+        mainMenuOption = delegator.getMainMenuOption(console, library);
 
-        assertEquals(new MainMenu(new ListBooksOption(library, console)), mainMenu);
+        assertEquals(mainMenuOption.getClass(),ListBooksOption.class);
     }
 
     @Test
-    public void shouldReturnMainMenuWithQuitWhenOptionTwoIsSelected() {
+    public void shouldReturnMainMenuQuitWhenOptionTwoIsSelected() {
         when(console.getUserInput()).thenReturn("2");
 
-        mainMenu = delegator.getMainMenuWithOption(console, library);
+        mainMenuOption = delegator.getMainMenuOption(console, library);
 
-        assertEquals(new MainMenu(new Quit()), mainMenu);
+        assertEquals(mainMenuOption.getClass(),Quit.class);
 
     }
 
     @Test
-    public void shouldReturnMainMenuWithCheckOutOptionWhenOptionThreeIsSelected() {
+    public void shouldReturnMainMenuCheckOutOptionWhenOptionThreeIsSelected() {
         when(console.getUserInput()).thenReturn("3");
 
-        mainMenu = delegator.getMainMenuWithOption(console, library);
+        mainMenuOption = delegator.getMainMenuOption(console, library);
 
-        assertEquals(new MainMenu(new CheckOutOption(library, console)), mainMenu);
+        assertEquals(mainMenuOption.getClass(),CheckOutOption.class);
 
     }
 
     @Test
-    public void shouldReturnMainMenuWithReturnOptionWhenOptionFourIsSelected() {
+    public void shouldReturnMainMenuReturnOptionWhenOptionFourIsSelected() {
         when(console.getUserInput()).thenReturn("4");
 
-        mainMenu = delegator.getMainMenuWithOption(console, library);
+        mainMenuOption = delegator.getMainMenuOption(console, library);
 
-        assertEquals(new MainMenu(new ReturnOption(library, console)), mainMenu);
+        assertEquals(mainMenuOption.getClass(),ReturnOption.class);
 
     }
 
     @Test
-    public void shouldReturnMainMenuWithInvalidMenuOptionWhenInvalidOptionIsSelected() {
+    public void shouldReturnMainMenuInvalidMenuOptionWhenInvalidOptionIsSelected() {
         when(console.getUserInput()).thenReturn("5");
 
-        mainMenu = delegator.getMainMenuWithOption(console, library);
+        mainMenuOption = delegator.getMainMenuOption(console, library);
 
-        assertEquals(new MainMenu(new InvalidMenuOption(console)), mainMenu);
+        assertEquals(mainMenuOption.getClass(),InvalidMenuOption.class);
 
     }
 

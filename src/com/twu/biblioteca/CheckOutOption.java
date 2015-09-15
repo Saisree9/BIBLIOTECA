@@ -15,7 +15,7 @@ public class CheckOutOption implements MainMenuOption {
         console.display("Enter booktitle to checkout: ");
         String booktitle = console.getUserInput();
         Book book = new Book(booktitle, "UNKNOWN_AUTHOR", UNKNOWN_YEAR);
-        String returnMessage = library.checkOut(book);
+        String returnMessage = library.checkOutBook(book);
         console.display(returnMessage);
 
     }

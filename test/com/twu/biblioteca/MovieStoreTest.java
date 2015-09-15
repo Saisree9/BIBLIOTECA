@@ -40,4 +40,10 @@ public class MovieStoreTest {
     public void shouldReturnTrueIfMovieWithSameNameAndDirectorExistInTheMovieStore() {
         assertEquals(true, movieStore.isMovieExist(new Movie("Movie1", "director1", 0, 0)));
     }
+
+    @Test
+    public void shouldRemoveMovieFromMovieStoreIfMovieCheckOutSuccessafully() {
+        movieStore.checkOutMovie(movie1);
+        assertFalse(movies.contains(movie1));
+    }
 }

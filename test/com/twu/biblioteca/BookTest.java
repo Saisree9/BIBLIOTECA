@@ -8,9 +8,9 @@ public class BookTest {
     @Test
     public void shouldReturnToStringFormatOfBook() {
         Book book = new Book("Head First Java", "Bert", 1991);
-        assertEquals("title='" + "Head First Java" + '\'' +
-                ", author='" + "Bert" + '\'' +
-                ", yearPublished=" + 1991 +
+        assertEquals("Title: " + "Head First Java" + '\'' +
+                ", Author: " + "Bert" + '\'' +
+                ", YearPublished: " + 1991 +
                  "\n", book.toString());
     }
 
@@ -30,6 +30,13 @@ public class BookTest {
     public void shouldEqualToBookWhichHasSameProperties() {
         Book book1 = new Book("Head First Java", "Bert", 1991);
         Book book2 = new Book("Head First Java", "Bert", 1991);
+        assertEquals(book1, book2);
+
+    }
+    @Test
+    public void shouldEqualToBookWhichHasSameTitle() {
+        Book book1 = new Book("Head First Java", "UNKNOWN", 0);
+        Book book2 = new Book("Head First Java", " ", 0);
         assertEquals(book1, book2);
 
     }
