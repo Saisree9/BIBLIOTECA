@@ -37,7 +37,7 @@ public class MovieTest {
     @Test
     public void shouldDisplayMovieDetails(){
         Movie movie1 = new Movie("Matrix", "SomeOne", 2000, 3.4);
-        assertEquals("name='Matrix', director='SomeOne', year=2000, rating=3.4",movie1.toString());
+        assertEquals("name='Matrix', director='SomeOne', year=2000, rating=3.4\n",movie1.toString());
 
     }
 

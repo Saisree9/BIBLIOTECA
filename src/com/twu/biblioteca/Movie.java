@@ -20,7 +20,7 @@ public class Movie {
 
         Movie thatMovie = (Movie) that;
 
-        return this.name.equals(thatMovie.name) && this.director.equals(thatMovie.director);
+        return this.name.equals(thatMovie.name);
     }
 
     @Override
