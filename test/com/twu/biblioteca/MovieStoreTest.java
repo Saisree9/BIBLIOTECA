@@ -23,6 +23,21 @@ public class MovieStoreTest {
 
     @Test
     public void shouldReturnToStringFormatOfTheListOfMovies() {
-        assertEquals("name='Movie1', director='director1', year=1, rating=1.0\nname='Movie2', director='director2', year=2, rating=2.0\n",movieStore.toString());
+        assertEquals("name='Movie1', director='director1', year=1, rating=1.0\nname='Movie2', director='director2', year=2, rating=2.0\n", movieStore.toString());
+    }
+
+    @Test
+    public void shouldReturnTrueIfMovieExistInTheMovieStore() {
+        assertEquals(true, movieStore.isMovieExist(movie1));
+    }
+
+    @Test
+    public void shouldReturnFalseIfMovieNotExistInTheMovieStore() {
+        assertEquals(false, movieStore.isMovieExist(new Movie("1", "f", 2, 2)));
+    }
+
+    @Test
+    public void shouldReturnTrueIfMovieWithSameNameAndDirectorExistInTheMovieStore() {
+        assertEquals(true, movieStore.isMovieExist(new Movie("Movie1", "director1", 0, 0)));
     }
 }
