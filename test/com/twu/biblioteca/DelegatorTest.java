@@ -92,6 +92,7 @@ public class DelegatorTest {
         assertEquals(mainMenuOption.getClass(), InvalidMenuOption.class);
 
     }
+
     @Test
     public void shouldReturnMainMenuListMoviesOptionWhenOptionFiveIsSelected() {
         when(console.getUserInput()).thenReturn("5");
@@ -101,5 +102,16 @@ public class DelegatorTest {
         assertEquals(mainMenuOption.getClass(), ListMoviesOption.class);
 
     }
+
+    @Test
+    public void shouldReturnMainMenuCheckOutMoviesOptionWhenOptionSixIsSelected() {
+        when(console.getUserInput()).thenReturn("6");
+
+        mainMenuOption = delegator.getMainMenuOption(console, library, movieStore);
+
+        assertEquals(mainMenuOption.getClass(), CheckOutMovieOption.class);
+
+    }
+
 
 }

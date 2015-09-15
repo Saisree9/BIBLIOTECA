@@ -15,7 +15,8 @@ public class Delegator {
                 return new ReturnOption(library, console);
             case 5:
                 return new ListMoviesOption(console, movieStore);
-
+            case 6:
+                return new CheckOutMovieOption(console, movieStore);
             default:
                 return new InvalidMenuOption(console);
         }
