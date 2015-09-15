@@ -3,13 +3,13 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookLibrary {
+public class Library {
     private List<Book> availableBookList;
     private List<Book> checkOutBookList = new ArrayList<Book>();
     private List<Movie> availableMovies;
-    private List<Movie> checkOutMovieList=new ArrayList<Movie>();
+    private List<Movie> checkOutMovieList = new ArrayList<Movie>();
 
-    public BookLibrary(List<Book> books, List<Movie> movies) {
+    public Library(List<Book> books, List<Movie> movies) {
         this.availableBookList = books;
         this.availableMovies = movies;
     }
@@ -24,11 +24,18 @@ public class BookLibrary {
         return false;
     }
 
-    @Override
-    public String toString() {
+    public String listBooks() {
         StringBuilder stringBuilder = new StringBuilder();
         for (Object book : availableBookList) {
             stringBuilder.append(book.toString());
+        }
+        return stringBuilder.toString();
+    }
+
+    public String listMovies() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Object movie : availableMovies) {
+            stringBuilder.append(movie.toString());
         }
         return stringBuilder.toString();
     }
