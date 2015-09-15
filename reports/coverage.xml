@@ -1,0 +1,814 @@
+<?xml version="1.0"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+
+<coverage line-rate="0.7831325301204819" branch-rate="0.631578947368421" lines-covered="130" lines-valid="166" branches-covered="36" branches-valid="57" complexity="2.225" version="2.1.1" timestamp="1442322591772">
+	<sources>
+		<source>src</source>
+	</sources>
+	<packages>
+		<package name="com.twu.biblioteca" line-rate="0.7831325301204819" branch-rate="0.631578947368421" complexity="2.225">
+			<classes>
+				<class name="com.twu.biblioteca.BibliotecaApp" filename="com/twu/biblioteca/BibliotecaApp.java" line-rate="0.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="4" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="main" signature="([Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="7" hits="0" branch="false"/>
+								<line number="8" hits="0" branch="false"/>
+								<line number="9" hits="0" branch="false"/>
+								<line number="10" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="4" hits="0" branch="false"/>
+						<line number="7" hits="0" branch="false"/>
+						<line number="8" hits="0" branch="false"/>
+						<line number="9" hits="0" branch="false"/>
+						<line number="10" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.twu.biblioteca.Book" filename="com/twu/biblioteca/Book.java" line-rate="0.7142857142857143" branch-rate="0.5" complexity="2.75">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;Ljava/lang/String;I)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="8" hits="65" branch="false"/>
+								<line number="9" hits="65" branch="false"/>
+								<line number="10" hits="65" branch="false"/>
+								<line number="11" hits="65" branch="false"/>
+								<line number="12" hits="65" branch="false"/>
+							</lines>
+						</method>
+						<method name="equals" signature="(Ljava/lang/Object;)Z" line-rate="1.0" branch-rate="0.8333333333333334" complexity="0">
+							<lines>
+								<line number="24" hits="36" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="25" hits="31" branch="true" condition-coverage="75% (3/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+										<condition number="1" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="27" hits="30" branch="false"/>
+								<line number="28" hits="30" branch="false"/>
+							</lines>
+						</method>
+						<method name="hashCode" signature="()I" line-rate="0.0" branch-rate="0.0" complexity="0">
+							<lines>
+								<line number="33" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="34" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="35" hits="0" branch="false"/>
+								<line number="36" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="toString" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="16" hits="7" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="8" hits="65" branch="false"/>
+						<line number="9" hits="65" branch="false"/>
+						<line number="10" hits="65" branch="false"/>
+						<line number="11" hits="65" branch="false"/>
+						<line number="12" hits="65" branch="false"/>
+						<line number="16" hits="7" branch="false"/>
+						<line number="24" hits="36" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="25" hits="31" branch="true" condition-coverage="75% (3/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="27" hits="30" branch="false"/>
+						<line number="28" hits="30" branch="false"/>
+						<line number="33" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="34" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="35" hits="0" branch="false"/>
+						<line number="36" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.twu.biblioteca.CheckOutMovieOption" filename="com/twu/biblioteca/CheckOutMovieOption.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lcom/twu/biblioteca/Console;Lcom/twu/biblioteca/MovieStore;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="7" hits="2" branch="false"/>
+								<line number="8" hits="2" branch="false"/>
+								<line number="9" hits="2" branch="false"/>
+								<line number="10" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="doOperation" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="14" hits="1" branch="false"/>
+								<line number="15" hits="1" branch="false"/>
+								<line number="16" hits="1" branch="false"/>
+								<line number="17" hits="1" branch="false"/>
+								<line number="18" hits="1" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="7" hits="2" branch="false"/>
+						<line number="8" hits="2" branch="false"/>
+						<line number="9" hits="2" branch="false"/>
+						<line number="10" hits="2" branch="false"/>
+						<line number="14" hits="1" branch="false"/>
+						<line number="15" hits="1" branch="false"/>
+						<line number="16" hits="1" branch="false"/>
+						<line number="17" hits="1" branch="false"/>
+						<line number="18" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.twu.biblioteca.CheckOutOption" filename="com/twu/biblioteca/CheckOutOption.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lcom/twu/biblioteca/Library;Lcom/twu/biblioteca/Console;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="8" hits="7" branch="false"/>
+								<line number="9" hits="7" branch="false"/>
+								<line number="10" hits="7" branch="false"/>
+								<line number="11" hits="7" branch="false"/>
+							</lines>
+						</method>
+						<method name="doOperation" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="15" hits="4" branch="false"/>
+								<line number="16" hits="4" branch="false"/>
+								<line number="17" hits="4" branch="false"/>
+								<line number="18" hits="4" branch="false"/>
+								<line number="19" hits="4" branch="false"/>
+								<line number="21" hits="4" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="8" hits="7" branch="false"/>
+						<line number="9" hits="7" branch="false"/>
+						<line number="10" hits="7" branch="false"/>
+						<line number="11" hits="7" branch="false"/>
+						<line number="15" hits="4" branch="false"/>
+						<line number="16" hits="4" branch="false"/>
+						<line number="17" hits="4" branch="false"/>
+						<line number="18" hits="4" branch="false"/>
+						<line number="19" hits="4" branch="false"/>
+						<line number="21" hits="4" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.twu.biblioteca.Console" filename="com/twu/biblioteca/Console.java" line-rate="0.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="6" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="display" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="9" hits="0" branch="false"/>
+								<line number="10" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getUserInput" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="13" hits="0" branch="false"/>
+								<line number="14" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="6" hits="0" branch="false"/>
+						<line number="9" hits="0" branch="false"/>
+						<line number="10" hits="0" branch="false"/>
+						<line number="13" hits="0" branch="false"/>
+						<line number="14" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.twu.biblioteca.Controller" filename="com/twu/biblioteca/Controller.java" line-rate="0.26666666666666666" branch-rate="1.0" complexity="2.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="6" hits="2" branch="false"/>
+								<line number="7" hits="2" branch="false"/>
+								<line number="8" hits="2" branch="false"/>
+								<line number="9" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="start" signature="(Lcom/twu/biblioteca/Console;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="12" hits="0" branch="false"/>
+								<line number="13" hits="0" branch="false"/>
+								<line number="14" hits="0" branch="false"/>
+								<line number="15" hits="0" branch="false"/>
+								<line number="16" hits="0" branch="false"/>
+								<line number="17" hits="0" branch="false"/>
+								<line number="18" hits="0" branch="false"/>
+								<line number="20" hits="0" branch="false"/>
+								<line number="21" hits="0" branch="false"/>
+								<line number="22" hits="0" branch="false"/>
+								<line number="23" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="6" hits="2" branch="false"/>
+						<line number="7" hits="2" branch="false"/>
+						<line number="8" hits="2" branch="false"/>
+						<line number="9" hits="2" branch="false"/>
+						<line number="12" hits="0" branch="false"/>
+						<line number="13" hits="0" branch="false"/>
+						<line number="14" hits="0" branch="false"/>
+						<line number="15" hits="0" branch="false"/>
+						<line number="16" hits="0" branch="false"/>
+						<line number="17" hits="0" branch="false"/>
+						<line number="18" hits="0" branch="false"/>
+						<line number="20" hits="0" branch="false"/>
+						<line number="21" hits="0" branch="false"/>
+						<line number="22" hits="0" branch="false"/>
+						<line number="23" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.twu.biblioteca.Delegator" filename="com/twu/biblioteca/Delegator.java" line-rate="1.0" branch-rate="1.0" complexity="13.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="3" hits="10" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMainMenuOption" signature="(Lcom/twu/biblioteca/Console;Lcom/twu/biblioteca/Library;Lcom/twu/biblioteca/MovieStore;)Lcom/twu/biblioteca/MainMenuOption;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="6" hits="8" branch="false"/>
+								<line number="7" hits="8" branch="true" condition-coverage="100% (7/7)">
+									<conditions>
+										<condition number="0" type="switch" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="9" hits="2" branch="false"/>
+								<line number="11" hits="1" branch="false"/>
+								<line number="13" hits="1" branch="false"/>
+								<line number="15" hits="1" branch="false"/>
+								<line number="17" hits="1" branch="false"/>
+								<line number="19" hits="1" branch="false"/>
+								<line number="21" hits="1" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="3" hits="10" branch="false"/>
+						<line number="6" hits="8" branch="false"/>
+						<line number="7" hits="8" branch="true" condition-coverage="100% (7/7)">
+							<conditions>
+								<condition number="0" type="switch" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="9" hits="2" branch="false"/>
+						<line number="11" hits="1" branch="false"/>
+						<line number="13" hits="1" branch="false"/>
+						<line number="15" hits="1" branch="false"/>
+						<line number="17" hits="1" branch="false"/>
+						<line number="19" hits="1" branch="false"/>
+						<line number="21" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.twu.biblioteca.InvalidMenuOption" filename="com/twu/biblioteca/InvalidMenuOption.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lcom/twu/biblioteca/Console;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="7" hits="2" branch="false"/>
+								<line number="8" hits="2" branch="false"/>
+								<line number="9" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="doOperation" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="13" hits="1" branch="false"/>
+								<line number="14" hits="1" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="7" hits="2" branch="false"/>
+						<line number="8" hits="2" branch="false"/>
+						<line number="9" hits="2" branch="false"/>
+						<line number="13" hits="1" branch="false"/>
+						<line number="14" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.twu.biblioteca.Library" filename="com/twu/biblioteca/Library.java" line-rate="0.9655172413793104" branch-rate="0.9285714285714286" complexity="2.8333333333333335">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/util/List;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="8" hits="23" branch="false"/>
+								<line number="10" hits="23" branch="false"/>
+								<line number="11" hits="23" branch="false"/>
+								<line number="12" hits="23" branch="false"/>
+							</lines>
+						</method>
+						<method name="checkOutBook" signature="(Lcom/twu/biblioteca/Book;)Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="35" hits="10" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="36" hits="7" branch="false"/>
+								<line number="37" hits="7" branch="false"/>
+								<line number="39" hits="3" branch="false"/>
+							</lines>
+						</method>
+						<method name="isBookExist" signature="(Lcom/twu/biblioteca/Book;)Z" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="15" hits="11" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="16" hits="17" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="17" hits="8" branch="false"/>
+								<line number="18" hits="8" branch="false"/>
+								<line number="20" hits="9" branch="false"/>
+								<line number="21" hits="3" branch="false"/>
+							</lines>
+						</method>
+						<method name="isBookExistInCheckOutBookList" signature="(Lcom/twu/biblioteca/Book;)Z" line-rate="0.8333333333333334" branch-rate="0.75" complexity="0">
+							<lines>
+								<line number="51" hits="5" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="52" hits="2" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="53" hits="2" branch="false"/>
+								<line number="54" hits="2" branch="false"/>
+								<line number="56" hits="0" branch="false"/>
+								<line number="57" hits="3" branch="false"/>
+							</lines>
+						</method>
+						<method name="returnBook" signature="(Lcom/twu/biblioteca/Book;)Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="43" hits="5" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="44" hits="2" branch="false"/>
+								<line number="45" hits="2" branch="false"/>
+								<line number="47" hits="3" branch="false"/>
+							</lines>
+						</method>
+						<method name="toString" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="26" hits="3" branch="false"/>
+								<line number="27" hits="3" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="28" hits="6" branch="false"/>
+								<line number="29" hits="6" branch="false"/>
+								<line number="30" hits="3" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="8" hits="23" branch="false"/>
+						<line number="10" hits="23" branch="false"/>
+						<line number="11" hits="23" branch="false"/>
+						<line number="12" hits="23" branch="false"/>
+						<line number="15" hits="11" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="16" hits="17" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="17" hits="8" branch="false"/>
+						<line number="18" hits="8" branch="false"/>
+						<line number="20" hits="9" branch="false"/>
+						<line number="21" hits="3" branch="false"/>
+						<line number="26" hits="3" branch="false"/>
+						<line number="27" hits="3" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="28" hits="6" branch="false"/>
+						<line number="29" hits="6" branch="false"/>
+						<line number="30" hits="3" branch="false"/>
+						<line number="35" hits="10" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="36" hits="7" branch="false"/>
+						<line number="37" hits="7" branch="false"/>
+						<line number="39" hits="3" branch="false"/>
+						<line number="43" hits="5" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="44" hits="2" branch="false"/>
+						<line number="45" hits="2" branch="false"/>
+						<line number="47" hits="3" branch="false"/>
+						<line number="51" hits="5" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="52" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="53" hits="2" branch="false"/>
+						<line number="54" hits="2" branch="false"/>
+						<line number="56" hits="0" branch="false"/>
+						<line number="57" hits="3" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.twu.biblioteca.ListBooksOption" filename="com/twu/biblioteca/ListBooksOption.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lcom/twu/biblioteca/Library;Lcom/twu/biblioteca/Console;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="7" hits="3" branch="false"/>
+								<line number="8" hits="3" branch="false"/>
+								<line number="9" hits="3" branch="false"/>
+								<line number="10" hits="3" branch="false"/>
+							</lines>
+						</method>
+						<method name="doOperation" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="14" hits="1" branch="false"/>
+								<line number="15" hits="1" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="7" hits="3" branch="false"/>
+						<line number="8" hits="3" branch="false"/>
+						<line number="9" hits="3" branch="false"/>
+						<line number="10" hits="3" branch="false"/>
+						<line number="14" hits="1" branch="false"/>
+						<line number="15" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.twu.biblioteca.ListMoviesOption" filename="com/twu/biblioteca/ListMoviesOption.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lcom/twu/biblioteca/Console;Lcom/twu/biblioteca/MovieStore;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="7" hits="2" branch="false"/>
+								<line number="8" hits="2" branch="false"/>
+								<line number="9" hits="2" branch="false"/>
+								<line number="10" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="doOperation" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="14" hits="1" branch="false"/>
+								<line number="15" hits="1" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="7" hits="2" branch="false"/>
+						<line number="8" hits="2" branch="false"/>
+						<line number="9" hits="2" branch="false"/>
+						<line number="10" hits="2" branch="false"/>
+						<line number="14" hits="1" branch="false"/>
+						<line number="15" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.twu.biblioteca.MainMenuOption" filename="com/twu/biblioteca/MainMenuOption.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="com.twu.biblioteca.Movie" filename="com/twu/biblioteca/Movie.java" line-rate="0.9166666666666666" branch-rate="0.5" complexity="2.5">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;Ljava/lang/String;ID)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="9" hits="42" branch="false"/>
+								<line number="10" hits="42" branch="false"/>
+								<line number="11" hits="42" branch="false"/>
+								<line number="12" hits="42" branch="false"/>
+								<line number="13" hits="42" branch="false"/>
+								<line number="14" hits="42" branch="false"/>
+							</lines>
+						</method>
+						<method name="equals" signature="(Ljava/lang/Object;)Z" line-rate="1.0" branch-rate="0.6666666666666666" complexity="0">
+							<lines>
+								<line number="18" hits="12" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="19" hits="8" branch="true" condition-coverage="50% (2/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+										<condition number="1" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="21" hits="8" branch="false"/>
+								<line number="23" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="hashCode" signature="()I" line-rate="0.0" branch-rate="0.0" complexity="0">
+							<lines>
+								<line number="28" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+						<method name="toString" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="33" hits="7" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="9" hits="42" branch="false"/>
+						<line number="10" hits="42" branch="false"/>
+						<line number="11" hits="42" branch="false"/>
+						<line number="12" hits="42" branch="false"/>
+						<line number="13" hits="42" branch="false"/>
+						<line number="14" hits="42" branch="false"/>
+						<line number="18" hits="12" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="19" hits="8" branch="true" condition-coverage="50% (2/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="21" hits="8" branch="false"/>
+						<line number="23" hits="8" branch="false"/>
+						<line number="28" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="33" hits="7" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.twu.biblioteca.MovieStore" filename="com/twu/biblioteca/MovieStore.java" line-rate="1.0" branch-rate="0.875" complexity="2.25">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/util/List;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="8" hits="16" branch="false"/>
+								<line number="9" hits="16" branch="false"/>
+								<line number="10" hits="16" branch="false"/>
+							</lines>
+						</method>
+						<method name="checkOutMovie" signature="(Lcom/twu/biblioteca/Movie;)V" line-rate="1.0" branch-rate="0.5" complexity="0">
+							<lines>
+								<line number="31" hits="2" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="32" hits="2" branch="false"/>
+								<line number="33" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="isMovieExist" signature="(Lcom/twu/biblioteca/Movie;)Z" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="22" hits="5" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="23" hits="6" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="24" hits="4" branch="false"/>
+								<line number="26" hits="2" branch="false"/>
+								<line number="27" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="toString" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="14" hits="3" branch="false"/>
+								<line number="15" hits="3" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="16" hits="6" branch="false"/>
+								<line number="17" hits="6" branch="false"/>
+								<line number="18" hits="3" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="8" hits="16" branch="false"/>
+						<line number="9" hits="16" branch="false"/>
+						<line number="10" hits="16" branch="false"/>
+						<line number="14" hits="3" branch="false"/>
+						<line number="15" hits="3" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="16" hits="6" branch="false"/>
+						<line number="17" hits="6" branch="false"/>
+						<line number="18" hits="3" branch="false"/>
+						<line number="22" hits="5" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="23" hits="6" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="24" hits="4" branch="false"/>
+						<line number="26" hits="2" branch="false"/>
+						<line number="27" hits="1" branch="false"/>
+						<line number="31" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="32" hits="2" branch="false"/>
+						<line number="33" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.twu.biblioteca.Quit" filename="com/twu/biblioteca/Quit.java" line-rate="0.3333333333333333" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="3" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="doOperation" signature="()V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="6" hits="0" branch="false"/>
+								<line number="7" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="3" hits="2" branch="false"/>
+						<line number="6" hits="0" branch="false"/>
+						<line number="7" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.twu.biblioteca.ReturnOption" filename="com/twu/biblioteca/ReturnOption.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lcom/twu/biblioteca/Library;Lcom/twu/biblioteca/Console;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="9" hits="4" branch="false"/>
+								<line number="10" hits="4" branch="false"/>
+								<line number="11" hits="4" branch="false"/>
+								<line number="12" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="doOperation" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="16" hits="3" branch="false"/>
+								<line number="17" hits="3" branch="false"/>
+								<line number="18" hits="3" branch="false"/>
+								<line number="19" hits="3" branch="false"/>
+								<line number="20" hits="3" branch="false"/>
+								<line number="21" hits="3" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="9" hits="4" branch="false"/>
+						<line number="10" hits="4" branch="false"/>
+						<line number="11" hits="4" branch="false"/>
+						<line number="12" hits="4" branch="false"/>
+						<line number="16" hits="3" branch="false"/>
+						<line number="17" hits="3" branch="false"/>
+						<line number="18" hits="3" branch="false"/>
+						<line number="19" hits="3" branch="false"/>
+						<line number="20" hits="3" branch="false"/>
+						<line number="21" hits="3" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.twu.biblioteca.User" filename="com/twu/biblioteca/User.java" line-rate="0.36363636363636365" branch-rate="0.0" complexity="3.3333333333333335">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="7" hits="1" branch="false"/>
+								<line number="8" hits="1" branch="false"/>
+								<line number="9" hits="1" branch="false"/>
+								<line number="10" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="equals" signature="(Ljava/lang/Object;)Z" line-rate="0.0" branch-rate="0.0" complexity="0">
+							<lines>
+								<line number="14" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="15" hits="0" branch="true" condition-coverage="0% (0/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+										<condition number="1" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="17" hits="0" branch="false"/>
+								<line number="18" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="hashCode" signature="()I" line-rate="0.0" branch-rate="0.0" complexity="0">
+							<lines>
+								<line number="24" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="25" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="26" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="7" hits="1" branch="false"/>
+						<line number="8" hits="1" branch="false"/>
+						<line number="9" hits="1" branch="false"/>
+						<line number="10" hits="1" branch="false"/>
+						<line number="14" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="15" hits="0" branch="true" condition-coverage="0% (0/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+								<condition number="1" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="17" hits="0" branch="false"/>
+						<line number="18" hits="0" branch="false"/>
+						<line number="24" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="25" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="26" hits="0" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+	</packages>
+</coverage>
