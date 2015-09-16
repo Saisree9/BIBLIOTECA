@@ -10,9 +10,9 @@ public class Delegator {
             case 2:
                 return new Quit();
             case 3:
-                return new CheckOutOption(library, console);
+                return new CheckOutBookOption(library, console);
             case 4:
-                return new ReturnOption(library, console);
+                return new ReturnBookOption(library, console);
             case 5:
                 return new ListMoviesOption(console, movieStore);
             case 6:

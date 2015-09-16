@@ -23,7 +23,7 @@ public class CheckOutOptionTest {
         listOfBooks.add(book1);
         listOfBooks.add(book2);
         Library library = new Library(listOfBooks);
-        checkOutOption = new CheckOutOption(library, console);
+        checkOutOption = new CheckOutBookOption(library, console);
     }
 
     @Test

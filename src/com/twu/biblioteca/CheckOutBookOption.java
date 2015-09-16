@@ -1,22 +1,22 @@
 package com.twu.biblioteca;
 
-public class ReturnOption implements MainMenuOption {
+public class CheckOutBookOption implements MainMenuOption {
     private static final int UNKNOWN_YEAR = 0;
-    private Console console;
     private Library library;
+    private Console console;
 
-
-    public ReturnOption(Library library, Console console) {
-        this.console = console;
+    public CheckOutBookOption(Library library, Console console) {
         this.library = library;
+        this.console = console;
     }
 
     @Override
     public void doOperation() {
-        console.display("Enter return book title: ");
+        console.display("Enter booktitle to checkout: ");
         String booktitle = console.getUserInput();
         Book book = new Book(booktitle, "UNKNOWN_AUTHOR", UNKNOWN_YEAR);
-        String returnMessage = library.returnBook(book);
+        String returnMessage = library.checkOutBook(book);
         console.display(returnMessage);
+
     }
 }

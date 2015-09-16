@@ -17,7 +17,7 @@ public class Controller {
         Library library = new Library(listOfBooks);
         MovieStore movieStore = new MovieStore(listOfMovies);
         while (true) {
-            console.display("Option1:ListBooks\nOption2:Quit\nOption3:CheckOut\nOption4:Return\nOption5:ListMovies\nOption6:CheckOutMovie\n\nEnterTheOption:");
+            console.display("Option1:ListBooks\nOption2:Quit\nOption3:CheckOutBook\nOption4:ReturnBook\nOption5:ListMovies\nOption6:CheckOutMovie\n\nEnterTheOption:");
             MainMenuOption mainMenuOption = delegator.getMainMenuOption(console, library, movieStore);
             mainMenuOption.doOperation();
         }

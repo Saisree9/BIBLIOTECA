@@ -24,8 +24,8 @@ public class ReturnOptionTest {
         listOfBooks.add(book1);
         listOfBooks.add(book2);
         Library library = new Library(listOfBooks);
-        returnOption = new ReturnOption(library, console);
-        checkOutOption = new CheckOutOption(library, console);
+        returnOption = new ReturnBookOption(library, console);
+        checkOutOption = new CheckOutBookOption(library, console);
     }
 
     @Test

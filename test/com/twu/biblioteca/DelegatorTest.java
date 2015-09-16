@@ -69,7 +69,7 @@ public class DelegatorTest {
 
         mainMenuOption = delegator.getMainMenuOption(console, library, movieStore);
 
-        assertEquals(mainMenuOption.getClass(), CheckOutOption.class);
+        assertEquals(mainMenuOption.getClass(), CheckOutBookOption.class);
 
     }
 
@@ -79,7 +79,7 @@ public class DelegatorTest {
 
         mainMenuOption = delegator.getMainMenuOption(console, library, movieStore);
 
-        assertEquals(mainMenuOption.getClass(), ReturnOption.class);
+        assertEquals(mainMenuOption.getClass(), ReturnBookOption.class);
 
     }
 
