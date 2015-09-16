@@ -18,4 +18,11 @@ public class UserTest {
         assertNotEquals(null, user);
     }
 
+    @Test
+    public void shouldEqualToUserHavingSameUserName() {
+        User user1 = new User(" Sai", "S");
+        User user2 = new User(" Sai", "D");
+        assertEquals(user1, user2);
+
+    }
 }
