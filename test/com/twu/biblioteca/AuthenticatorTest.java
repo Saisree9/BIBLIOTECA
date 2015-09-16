@@ -16,4 +16,11 @@ public class AuthenticatorTest {
         Authenticator authenticator = new Authenticator(users);
         assertTrue(authenticator.authenticate(new User("User1", "PassWord")));
     }
+
+    @Test
+    public void shouldReturnFalseIfUserRegisteredThatIsUserDoesNotExistInRegisteredUsersList() {
+        users.add(new User("User1", "PassWord"));
+        Authenticator authenticator = new Authenticator(users);
+        assertFalse(authenticator.authenticate(new User("User", "PassWord1")));
+    }
 }
