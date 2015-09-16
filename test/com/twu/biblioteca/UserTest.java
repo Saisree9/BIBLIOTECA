@@ -33,4 +33,11 @@ public class UserTest {
         assertEquals(user1.hashCode(), user2.hashCode());
 
     }
+
+    @Test
+    public void shouldDisplayToStringFormatOfGivenUser() {
+        User user1 = new User(" Sai", "S", "user");
+        assertEquals("LibraryNumber=' Sai', PassWord='S', Role='user'", user1.toString());
+
+    }
 }
