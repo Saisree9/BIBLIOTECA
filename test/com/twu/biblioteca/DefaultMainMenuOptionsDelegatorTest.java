@@ -11,14 +11,14 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-public class DelegatorTest {
+public class DefaultMainMenuOptionsDelegatorTest {
     private List<Book> listOfBooks = new ArrayList<Book>();
     private Console console = mock(Console.class);
     private Book book1 = new Book("Java design patterns", "pankaj", 1887);
     private Book book2 = new Book("Head First Java", "Bert", 1991);
     private Library library;
     private MainMenuOption mainMenuOption;
-    private Delegator delegator;
+    private DefaultMainMenuOptionsDelegator delegator;
     private List<Movie> movies = new ArrayList<Movie>();
     private Movie movie1 = new Movie("Movie1", "director1", 1, 1);
     private Movie movie2 = new Movie("Movie2", "director2", 2, 2);
@@ -32,7 +32,7 @@ public class DelegatorTest {
         movies.add(movie1);
         movies.add(movie2);
         movieStore = new MovieStore(movies);
-        delegator = new Delegator();
+        delegator = new DefaultMainMenuOptionsDelegator();
     }
 
     @Test

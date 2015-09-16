@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class Delegator {
+public class DefaultMainMenuOptionsDelegator {
 
     public MainMenuOption getMainMenuOption(Console console, Library library, MovieStore movieStore) {
         int option = Integer.parseInt(console.getUserInput());
@@ -10,12 +10,10 @@ public class Delegator {
             case 2:
                 return new Quit();
             case 3:
-                return new CheckOutBookOption(library, console);
+                return new LoginOption(console,library);
             case 4:
-                return new ReturnBookOption(library, console);
-            case 5:
                 return new ListMoviesOption(console, movieStore);
-            case 6:
+            case 5:
                 return new CheckOutMovieOption(console, movieStore);
             default:
                 return new InvalidMenuOption(console);
