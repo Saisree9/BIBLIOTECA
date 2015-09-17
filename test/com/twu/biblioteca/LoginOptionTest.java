@@ -42,4 +42,20 @@ public class LoginOptionTest {
         User actual = loginOption.authenticateUserDetails();
         assertEquals(new User("USR1", "PSWRD1", "user"), actual);
     }
+
+    @Test
+    public void shouldDisplayUserMainMenuOptionsWhenTheRoleOfTheCustomerIsUser() {
+        when(console.getUserInput()).thenReturn("USR1", "PSWRD1");
+        loginOption.doOperation();
+        verify(console).display("Option1:ListBooks\n" +
+                "Option2:UserDetails\n" +
+                "Option3:CheckOutBooks\n" +
+                "Option4:ReturnOption\n" +
+                "Option5:ListMovies\n" +
+                "Option6:CheckOutMovie\n" +
+                "Option7:logout\n" +
+                "\n" +
+                "EnterTheOption:");
+
+    }
 }

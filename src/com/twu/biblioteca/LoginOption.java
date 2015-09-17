@@ -16,12 +16,38 @@ public class LoginOption implements MainMenuOption {
 
     @Override
     public void doOperation() {
-        user=authenticateUserDetails();
+        user = authenticateUserDetails();
+        MainMenuOptionDelegator mainMenuOptionDelegator = getMainMenuOptionDelegator();
     }
+
+    private MainMenuOptionDelegator getMainMenuOptionDelegator() {
+        String role = user.getRole();
+        switch (role) {
+            case "user":
+                console.display("Option1:ListBooks\n" +
+                        "Option2:UserDetails\n" +
+                        "Option3:CheckOutBooks\n" +
+                        "Option4:ReturnOption\n" +
+                        "Option5:ListMovies\n" +
+                        "Option6:CheckOutMovie\n" +
+                        "Option7:logout\n" +
+                        "\n" +
+                        "EnterTheOption:");
+                return new UserMainMenuOptionsDelegator(user);
+            default:
+                console.display("Option1:ListBooks\n" +
+                        "Option2:Quit\n" +
+                        "Option4:ListMovies\n" +
+                        "Option5:CheckOutMovie\n" +
+                        "\nEnterTheOption:");
+                return new DefaultMainMenuOptionsDelegator(authenticator);
+        }
+    }
+
 
     public User authenticateUserDetails() {
         String libraryNumber = console.getUserInput();
         String passWord = console.getUserInput();
-        return authenticator.authenticate(libraryNumber,passWord);
+        return authenticator.authenticate(libraryNumber, passWord);
     }
 }
