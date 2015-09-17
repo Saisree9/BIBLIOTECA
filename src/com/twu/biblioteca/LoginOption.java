@@ -16,7 +16,12 @@ public class LoginOption implements MainMenuOption {
 
     @Override
     public void doOperation() {
+        user=authenticateUserDetails();
+    }
+
+    public User authenticateUserDetails() {
         String libraryNumber = console.getUserInput();
         String passWord = console.getUserInput();
+        return authenticator.authenticate(libraryNumber,passWord);
     }
 }
