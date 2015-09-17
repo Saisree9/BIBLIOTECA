@@ -23,6 +23,8 @@ public class UserMainMenuOptionsDelegator implements MainMenuOptionDelegator {
                 return new ListMoviesOption(console, movieStore);
             case 6:
                 return new CheckOutMovieOption(console, movieStore);
+            case 7:
+                return new LogOutOption();
             default:
                 return new InvalidMenuOption(console);
         }

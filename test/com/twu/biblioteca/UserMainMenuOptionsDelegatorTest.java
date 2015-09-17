@@ -108,4 +108,13 @@ public class UserMainMenuOptionsDelegatorTest {
 
         assertEquals(mainMenuOption.getClass(), CheckOutMovieOption.class);
     }
+
+    @Test
+    public void shouldReturnMainMenuLogoutOptionWhenOptionSevenIsSelected() {
+        when(console.getUserInput()).thenReturn("7");
+
+        mainMenuOption = delegator.getMainMenuOption(console, library, movieStore);
+
+        assertEquals(mainMenuOption.getClass(), LogOutOption.class);
+    }
 }
