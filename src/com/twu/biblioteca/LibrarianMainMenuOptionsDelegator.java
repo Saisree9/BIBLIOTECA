@@ -15,6 +15,8 @@ public class LibrarianMainMenuOptionsDelegator implements MainMenuOptionDelegato
                 return new ListBooksOption(library, console);
             case 2:
                 return new UserDetailsOption(user, console);
+            case 3:
+                return new CheckOutBookOption(library, console);
             default:
                 return new InvalidMenuOption(console);
         }
