@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -21,6 +22,8 @@ public class LibrarianMainMenuOptionsDelegatorTest {
     private Movie movie1 = new Movie("Movie1", "director1", 1, 1);
     private Movie movie2 = new Movie("Movie2", "director2", 2, 2);
     private MovieStore movieStore;
+    private User user;
+    private MainMenuOption mainMenuOption;
 
     @Before
     public void setUp() {
@@ -30,7 +33,7 @@ public class LibrarianMainMenuOptionsDelegatorTest {
         movies.add(movie1);
         movies.add(movie2);
         movieStore = new MovieStore(movies);
-        delegator = new LibrarianMainMenuOptionsDelegator();
+        delegator = new LibrarianMainMenuOptionsDelegator(user);
     }
 
     @Test
@@ -40,5 +43,14 @@ public class LibrarianMainMenuOptionsDelegatorTest {
         delegator.getMainMenuOption(console, library, movieStore);
 
         verify(console).getUserInput();
+    }
+
+    @Test
+    public void shouldReturnMainMenuListBooksOptionWhenOptionOneIsSelected() {
+        when(console.getUserInput()).thenReturn("1");
+
+        mainMenuOption = delegator.getMainMenuOption(console, library, movieStore);
+
+        assertEquals(mainMenuOption.getClass(), ListBooksOption.class);
     }
 }
