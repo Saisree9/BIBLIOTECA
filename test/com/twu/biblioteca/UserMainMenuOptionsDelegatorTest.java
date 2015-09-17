@@ -83,11 +83,29 @@ public class UserMainMenuOptionsDelegatorTest {
     }
 
     @Test
-    public void shouldReturnMainMenuReturnBookOptionWhenOptionThreeIsSelected() {
+    public void shouldReturnMainMenuReturnBookOptionWhenOptionFourIsSelected() {
         when(console.getUserInput()).thenReturn("4");
 
         mainMenuOption = delegator.getMainMenuOption(console, library, movieStore);
 
         assertEquals(mainMenuOption.getClass(), ReturnBookOption.class);
+    }
+
+    @Test
+    public void shouldReturnMainMenuListMoviesOptionWhenOptionFiveIsSelected() {
+        when(console.getUserInput()).thenReturn("5");
+
+        mainMenuOption = delegator.getMainMenuOption(console, library, movieStore);
+
+        assertEquals(mainMenuOption.getClass(), ListMoviesOption.class);
+    }
+
+    @Test
+    public void shouldReturnMainMenuCheckOutMovieOptionWhenOptionSixIsSelected() {
+        when(console.getUserInput()).thenReturn("6");
+
+        mainMenuOption = delegator.getMainMenuOption(console, library, movieStore);
+
+        assertEquals(mainMenuOption.getClass(), CheckOutMovieOption.class);
     }
 }
