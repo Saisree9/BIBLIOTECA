@@ -23,6 +23,7 @@ public class DefaultMainMenuOptionsDelegatorTest {
     private Movie movie1 = new Movie("Movie1", "director1", 1, 1);
     private Movie movie2 = new Movie("Movie2", "director2", 2, 2);
     private MovieStore movieStore;
+    private Authenticator authenticator;
 
     @Before
     public void setUp() {
@@ -32,7 +33,7 @@ public class DefaultMainMenuOptionsDelegatorTest {
         movies.add(movie1);
         movies.add(movie2);
         movieStore = new MovieStore(movies);
-        delegator = new DefaultMainMenuOptionsDelegator();
+        delegator = new DefaultMainMenuOptionsDelegator(authenticator);
     }
 
     @Test
@@ -64,24 +65,14 @@ public class DefaultMainMenuOptionsDelegatorTest {
     }
 
     @Test
-    public void shouldReturnMainMenuCheckOutOptionWhenOptionThreeIsSelected() {
+    public void shouldReturnMainMenuLoginOptionwhenOptionThreeIsSelected() {
         when(console.getUserInput()).thenReturn("3");
 
         mainMenuOption = delegator.getMainMenuOption(console, library, movieStore);
 
-        assertEquals(mainMenuOption.getClass(), CheckOutBookOption.class);
-
+        assertEquals(mainMenuOption.getClass(), LoginOption.class);
     }
 
-    @Test
-    public void shouldReturnMainMenuReturnOptionWhenOptionFourIsSelected() {
-        when(console.getUserInput()).thenReturn("4");
-
-        mainMenuOption = delegator.getMainMenuOption(console, library, movieStore);
-
-        assertEquals(mainMenuOption.getClass(), ReturnBookOption.class);
-
-    }
 
     @Test
     public void shouldReturnMainMenuInvalidMenuOptionWhenInvalidOptionIsSelected() {
@@ -95,7 +86,7 @@ public class DefaultMainMenuOptionsDelegatorTest {
 
     @Test
     public void shouldReturnMainMenuListMoviesOptionWhenOptionFiveIsSelected() {
-        when(console.getUserInput()).thenReturn("5");
+        when(console.getUserInput()).thenReturn("4");
 
         mainMenuOption = delegator.getMainMenuOption(console, library, movieStore);
 
@@ -105,7 +96,7 @@ public class DefaultMainMenuOptionsDelegatorTest {
 
     @Test
     public void shouldReturnMainMenuCheckOutMoviesOptionWhenOptionSixIsSelected() {
-        when(console.getUserInput()).thenReturn("6");
+        when(console.getUserInput()).thenReturn("5");
 
         mainMenuOption = delegator.getMainMenuOption(console, library, movieStore);
 
