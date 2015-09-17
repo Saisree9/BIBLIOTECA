@@ -53,4 +53,14 @@ public class LibrarianMainMenuOptionsDelegatorTest {
 
         assertEquals(mainMenuOption.getClass(), ListBooksOption.class);
     }
+
+    @Test
+    public void shouldReturnMainMenuInvalidOptionWhenInvalidOptionIsSelected() {
+        when(console.getUserInput()).thenReturn("10");
+
+        mainMenuOption = delegator.getMainMenuOption(console, library, movieStore);
+
+        assertEquals(mainMenuOption.getClass(), InvalidMenuOption.class);
+
+    }
 }
