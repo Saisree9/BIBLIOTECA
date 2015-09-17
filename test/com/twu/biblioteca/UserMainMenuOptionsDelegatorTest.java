@@ -33,6 +33,7 @@ public class UserMainMenuOptionsDelegatorTest {
         movieStore = new MovieStore(movies);
         delegator = new UserMainMenuOptionsDelegator();
     }
+
     @Test
     public void shouldGetOptionInputFromUser() {
         when(console.getUserInput()).thenReturn("1");
@@ -40,6 +41,15 @@ public class UserMainMenuOptionsDelegatorTest {
         delegator.getMainMenuOption(console, library, movieStore);
 
         verify(console).getUserInput();
+    }
+
+    @Test
+    public void shouldReturnMainMenuListBooksOptionWhenOptionOneIsSelected() {
+        when(console.getUserInput()).thenReturn("1");
+
+        MainMenuOption mainMenuOption = delegator.getMainMenuOption(console, library, movieStore);
+
+        assertEquals(mainMenuOption.getClass(), ListBooksOption.class);
     }
 
 }
