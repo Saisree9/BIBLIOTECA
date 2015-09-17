@@ -23,6 +23,7 @@ public class UserMainMenuOptionsDelegatorTest {
     private Movie movie2 = new Movie("Movie2", "director2", 2, 2);
     private MovieStore movieStore;
     private MainMenuOption mainMenuOption;
+    private User user;
 
     @Before
     public void setUp() {
@@ -32,7 +33,7 @@ public class UserMainMenuOptionsDelegatorTest {
         movies.add(movie1);
         movies.add(movie2);
         movieStore = new MovieStore(movies);
-        delegator = new UserMainMenuOptionsDelegator();
+        delegator = new UserMainMenuOptionsDelegator(user);
     }
 
     @Test
@@ -61,5 +62,14 @@ public class UserMainMenuOptionsDelegatorTest {
 
         assertEquals(mainMenuOption.getClass(), InvalidMenuOption.class);
 
+    }
+
+    @Test
+    public void shouldReturnMainMenuUserDetailsOptionWhenOptionOptionThreeIsSelected() {
+        when(console.getUserInput()).thenReturn("3");
+
+        mainMenuOption = delegator.getMainMenuOption(console, library, movieStore);
+
+        assertEquals(mainMenuOption.getClass(), UserDetailsOption.class);
     }
 }
