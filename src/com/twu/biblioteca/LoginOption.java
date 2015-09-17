@@ -5,16 +5,18 @@ public class LoginOption implements MainMenuOption {
     private Library library;
     private Authenticator authenticator;
     private User user;
+    private MovieStore movieStore;
 
-    public LoginOption(Console console, Library library) {
+    public LoginOption(Console console, Library library, MovieStore movieStore, Authenticator authenticator) {
         this.console = console;
         this.library = library;
+        this.movieStore = movieStore;
+        this.authenticator = authenticator;
     }
 
     @Override
     public void doOperation() {
         String libraryNumber = console.getUserInput();
-        String password = console.getUserInput();
-        user = new User(libraryNumber, password);
+        String passWord = console.getUserInput();
     }
 }
