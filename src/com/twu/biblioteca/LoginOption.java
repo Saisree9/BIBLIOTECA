@@ -20,7 +20,7 @@ public class LoginOption implements MainMenuOption {
         MainMenuOptionDelegator mainMenuOptionDelegator = getMainMenuOptionDelegator();
     }
 
-    private MainMenuOptionDelegator getMainMenuOptionDelegator() {
+    public  MainMenuOptionDelegator getMainMenuOptionDelegator() {
         String role = user.getRole();
         switch (role) {
             case "user":

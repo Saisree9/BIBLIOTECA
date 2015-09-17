@@ -18,6 +18,7 @@ public class LoginOptionTest {
     private Library library;
     private LoginOption loginOption;
     private Authenticator authenticator;
+    private MainMenuOptionDelegator mainMenuOptionDelegator;
 
     @Before
     public void setUp() {
@@ -57,5 +58,13 @@ public class LoginOptionTest {
                 "\n" +
                 "EnterTheOption:");
 
+    }
+
+    @Test
+    public void shouldReturnUserMainMenuOptionDelegatorIfTheRoleIsUser() {
+        when(console.getUserInput()).thenReturn("USR1", "PSWRD1");
+        loginOption.doOperation();
+        mainMenuOptionDelegator = loginOption.getMainMenuOptionDelegator();
+        assertEquals(mainMenuOptionDelegator.getClass(), UserMainMenuOptionsDelegator.class);
     }
 }
