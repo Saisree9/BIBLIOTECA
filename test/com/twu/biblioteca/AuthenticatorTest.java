@@ -8,19 +8,19 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class AuthenticatorTest {
-    private List<User> users = new ArrayList<User>();
+    private List<User> registeredUsersList = new ArrayList<User>();
 
     @Test
-    public void shouldReturnTrueIfUserRegisteredThatIsUserExistInRegisteredUsersList() {
-        users.add(new User("User1", "PassWord"));
-        Authenticator authenticator = new Authenticator(users);
-        assertTrue(authenticator.authenticate(new User("User1", "PassWord")));
+    public void shouldReturnUserIfUserRegisteredThatIsUserExistInRegisteredUsersList() {
+        registeredUsersList.add(new User("User1", "PassWord", "user"));
+        Authenticator authenticator = new Authenticator(registeredUsersList);
+        assertEquals(new User("User1", "PassWord", "user"), authenticator.authenticate("User1", "PassWord"));
     }
 
     @Test
-    public void shouldReturnFalseIfUserRegisteredThatIsUserDoesNotExistInRegisteredUsersList() {
-        users.add(new User("User1", "PassWord"));
-        Authenticator authenticator = new Authenticator(users);
-        assertFalse(authenticator.authenticate(new User("User", "PassWord1")));
+    public void shouldReturnNullIfUserNotRegisteredThatIsUserDoesNotExistInRegisteredUsersList() {
+        registeredUsersList.add(new User("User1", "PassWord", "user"));
+        Authenticator authenticator = new Authenticator(registeredUsersList);
+        assertEquals(null, authenticator.authenticate("User", "Password1"));
     }
 }

@@ -11,7 +11,12 @@ public class Authenticator {
         this.users = users;
     }
 
-    public boolean authenticate(User user) {
-        return users.contains(user);
+    public User authenticate(String libraryNumber, String password) {
+        User user = new User(libraryNumber, password, "NULL");
+        for (User user1 : users) {
+            if (user.equals(user1))
+                return user;
+        }
+        return null;
     }
 }
