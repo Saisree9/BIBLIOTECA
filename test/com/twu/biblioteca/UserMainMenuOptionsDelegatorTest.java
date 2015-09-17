@@ -79,7 +79,7 @@ public class UserMainMenuOptionsDelegatorTest {
 
         mainMenuOption = delegator.getMainMenuOption(console, library, movieStore);
 
-        assertEquals(mainMenuOption.getClass(), CheckOutMovieOption.class);
+        assertEquals(mainMenuOption.getClass(), CheckOutBookOption.class);
     }
 
     @Test
