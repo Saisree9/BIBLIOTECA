@@ -72,4 +72,13 @@ public class UserMainMenuOptionsDelegatorTest {
 
         assertEquals(mainMenuOption.getClass(), UserDetailsOption.class);
     }
+
+    @Test
+    public void shouldReturnMainMenuCheckOutBookOptionWhenOptionThreeIsSelected() {
+        when(console.getUserInput()).thenReturn("3");
+
+        mainMenuOption = delegator.getMainMenuOption(console, library, movieStore);
+
+        assertEquals(mainMenuOption.getClass(), CheckOutMovieOption.class);
+    }
 }
