@@ -28,14 +28,14 @@ public class User {
         return result;
     }
 
-    public String getRole() {
-        return role;
-    }
-
     @Override
     public String toString() {
         return "LibraryNumber='" + libraryNumber + '\'' +
                 ", PassWord='" + passWord + '\'' +
                 ", Role='" + role + '\'';
+    }
+
+    public boolean hasValidLibraryNumber() {
+        return libraryNumber.length() == 8 && libraryNumber.charAt(3) == '-';
     }
 }

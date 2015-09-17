@@ -2,8 +2,7 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 public class UserTest {
     @Test
@@ -23,7 +22,6 @@ public class UserTest {
         User user1 = new User(" Sai", "S", "user");
         User user2 = new User(" Sai", "S", "user1");
         assertEquals(user1, user2);
-
     }
 
     @Test
@@ -31,13 +29,23 @@ public class UserTest {
         User user1 = new User(" Sai", "S", "user");
         User user2 = new User(" Sai", "S", "user");
         assertEquals(user1.hashCode(), user2.hashCode());
-
     }
 
     @Test
     public void shouldDisplayToStringFormatOfGivenUser() {
         User user1 = new User(" Sai", "S", "user");
         assertEquals("LibraryNumber=' Sai', PassWord='S', Role='user'", user1.toString());
+    }
 
+    @Test
+    public void shouldReturnTrueIfLibraryNumberIsValid() {
+        User user1 = new User("Sai-sree", "S", "user");
+        assertTrue(user1.hasValidLibraryNumber());
+    }
+
+    @Test
+    public void shouldReturnFalseIfLibraryNumberIsInValid() {
+        User user1 = new User("Saisree", "S", "user");
+        assertFalse(user1.hasValidLibraryNumber());
     }
 }
