@@ -22,6 +22,7 @@ public class UserMainMenuOptionsDelegatorTest {
     private Movie movie1 = new Movie("Movie1", "director1", 1, 1);
     private Movie movie2 = new Movie("Movie2", "director2", 2, 2);
     private MovieStore movieStore;
+    private MainMenuOption mainMenuOption;
 
     @Before
     public void setUp() {
@@ -47,9 +48,18 @@ public class UserMainMenuOptionsDelegatorTest {
     public void shouldReturnMainMenuListBooksOptionWhenOptionOneIsSelected() {
         when(console.getUserInput()).thenReturn("1");
 
-        MainMenuOption mainMenuOption = delegator.getMainMenuOption(console, library, movieStore);
+        mainMenuOption = delegator.getMainMenuOption(console, library, movieStore);
 
         assertEquals(mainMenuOption.getClass(), ListBooksOption.class);
     }
 
+    @Test
+    public void shouldReturnMainMenuInvalidMenuOptionWhenInvalidOptionIsSelected() {
+        when(console.getUserInput()).thenReturn("10");
+
+        mainMenuOption = delegator.getMainMenuOption(console, library, movieStore);
+
+        assertEquals(mainMenuOption.getClass(), InvalidMenuOption.class);
+
+    }
 }
