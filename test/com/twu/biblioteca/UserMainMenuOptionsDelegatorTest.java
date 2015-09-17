@@ -65,8 +65,8 @@ public class UserMainMenuOptionsDelegatorTest {
     }
 
     @Test
-    public void shouldReturnMainMenuUserDetailsOptionWhenOptionOptionThreeIsSelected() {
-        when(console.getUserInput()).thenReturn("3");
+    public void shouldReturnMainMenuUserDetailsOptionWhenOptionOptionTwoIsSelected() {
+        when(console.getUserInput()).thenReturn("2");
 
         mainMenuOption = delegator.getMainMenuOption(console, library, movieStore);
 
