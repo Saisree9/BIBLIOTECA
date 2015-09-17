@@ -17,6 +17,8 @@ public class UserMainMenuOptionsDelegator implements MainMenuOptionDelegator {
                 return new UserDetailsOption(user, console);
             case 3:
                 return new CheckOutBookOption(library, console);
+            case 4:
+                return new ReturnBookOption(library, console);
             default:
                 return new InvalidMenuOption(console);
         }
