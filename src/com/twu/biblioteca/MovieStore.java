@@ -12,9 +12,11 @@ public class MovieStore {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("------------------------------------------------------------------------------\n");
         for (Object movie : availableMovies) {
             stringBuilder.append(movie.toString());
         }
+        stringBuilder.append("------------------------------------------------------------------------------\n");
         return stringBuilder.toString();
     }
 

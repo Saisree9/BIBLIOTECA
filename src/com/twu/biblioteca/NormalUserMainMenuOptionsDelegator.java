@@ -16,9 +16,9 @@ public class NormalUserMainMenuOptionsDelegator implements MainMenuOptionDelegat
             case 2:
                 return new UserDetailsOption(user, console);
             case 3:
-                return new CheckOutBookOption(library, console);
+                return new CheckOutBookOption(library, console, user);
             case 4:
-                return new ReturnBookOption(library, console);
+                return new ReturnBookOption(library, console, user);
             case 5:
                 return new ListMoviesOption(console, movieStore);
             case 6:
