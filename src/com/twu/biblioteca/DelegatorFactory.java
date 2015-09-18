@@ -22,7 +22,7 @@ public class DelegatorFactory {
                         "Option7:logout\n" +
                         "\n" +
                         "EnterTheOption:");
-                return new UserMainMenuOptionsDelegator(user);
+                return new NormalUserMainMenuOptionsDelegator(user);
             case "librarian":
                 console.display("Option1:ListBooks\n" +
                         "Option2:UserDetails\n" +

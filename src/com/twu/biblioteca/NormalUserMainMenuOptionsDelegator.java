@@ -1,10 +1,10 @@
 package com.twu.biblioteca;
 
-public class UserMainMenuOptionsDelegator implements MainMenuOptionDelegator {
+public class NormalUserMainMenuOptionsDelegator implements MainMenuOptionDelegator {
 
     private User user;
 
-    public UserMainMenuOptionsDelegator(User user) {
+    public NormalUserMainMenuOptionsDelegator(User user) {
         this.user = user;
     }
 

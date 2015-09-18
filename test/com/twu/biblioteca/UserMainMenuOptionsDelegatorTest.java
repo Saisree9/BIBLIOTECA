@@ -33,7 +33,7 @@ public class UserMainMenuOptionsDelegatorTest {
         movies.add(movie1);
         movies.add(movie2);
         movieStore = new MovieStore(movies);
-        delegator = new UserMainMenuOptionsDelegator(user);
+        delegator = new NormalUserMainMenuOptionsDelegator(user);
     }
 
     @Test

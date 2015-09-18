@@ -44,7 +44,7 @@ public class DelegatorFactoryTest {
     public void shouldReturnUserMainMenuOptionDelegatorIfTheRoleIsUser() {
         User user = new User("USR1", "PSWRD1", "user");
         mainMenuOptionDelegator = delegatorFactory.getMainMenuOptionDelegator(user);
-        assertEquals(mainMenuOptionDelegator.getClass(), UserMainMenuOptionsDelegator.class);
+        assertEquals(mainMenuOptionDelegator.getClass(), NormalUserMainMenuOptionsDelegator.class);
     }
 
     @Test
@@ -67,7 +67,7 @@ public class DelegatorFactoryTest {
     public void shouldReturnLibrarianMainMenuOptionDelegatorIfTheRoleIsLibrarian() {
         User user = new User("USR1", "PSWRD1", "user");
         mainMenuOptionDelegator = delegatorFactory.getMainMenuOptionDelegator(user);
-        assertEquals(mainMenuOptionDelegator.getClass(), UserMainMenuOptionsDelegator.class);
+        assertEquals(mainMenuOptionDelegator.getClass(), NormalUserMainMenuOptionsDelegator.class);
     }
 
 }

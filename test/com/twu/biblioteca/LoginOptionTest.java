@@ -68,7 +68,7 @@ public class LoginOptionTest {
 
         loginOption.doOperation();
 
-        assertEquals(mainMenuOptionDelegator.getClass(), UserMainMenuOptionsDelegator.class);
+        assertEquals(mainMenuOptionDelegator.getClass(), NormalUserMainMenuOptionsDelegator.class);
     }
 
     @Test
@@ -94,7 +94,7 @@ public class LoginOptionTest {
         loginOption.doOperation();
         User user = new User("USR1", "PSWRD1", "user");
         mainMenuOptionDelegator = delegatorFactory.getMainMenuOptionDelegator(user);
-        assertEquals(mainMenuOptionDelegator.getClass(), UserMainMenuOptionsDelegator.class);
+        assertEquals(mainMenuOptionDelegator.getClass(), NormalUserMainMenuOptionsDelegator.class);
     }
 
     @Test
@@ -152,7 +152,7 @@ public class LoginOptionTest {
         LoginOption loginOption = new LoginOption(console, library, movieStore, authenticator, delegatorFactory);
 
         loginOption.doOperation();
-        
+
         verify(console).display("Authentication failed");
     }
 
