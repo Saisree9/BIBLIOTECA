@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+//BookDetails has book and  registered user details
 public class BookDetails {
     private Book book;
     private User user;

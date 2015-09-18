@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//library is to check out book ,displays list of book details
 public class Library {
     private List<Book> availableBookList;
     private List<Book> checkOutBookList = new ArrayList<Book>();

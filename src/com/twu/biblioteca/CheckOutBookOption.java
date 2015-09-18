@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+//checkout's book from the library
 public class CheckOutBookOption implements MainMenuOption {
     private static final int UNKNOWN_YEAR = 0;
     private Library library;

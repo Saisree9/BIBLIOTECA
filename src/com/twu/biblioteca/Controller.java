@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//controller will start the application
 public class Controller {
     private List<Book> listOfBooks = new ArrayList<Book>();
     private List<User> listOfUsers = new ArrayList<>();

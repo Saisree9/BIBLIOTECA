@@ -1,5 +1,5 @@
 package com.twu.biblioteca;
-
+//delegates the delegators
 public class DelegatorFactory {
     private Console console;
     private Authenticator authenticator;

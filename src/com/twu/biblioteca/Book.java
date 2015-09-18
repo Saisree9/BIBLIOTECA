@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+//Book compare with other book and produce to string format
 public class Book {
     private String title;
     private String author;

@@ -1,5 +1,5 @@
 package com.twu.biblioteca;
-
+//check out's movie from the library
 public class CheckOutMovieOption implements MainMenuOption {
     private Console console;
     private MovieStore movieStore;

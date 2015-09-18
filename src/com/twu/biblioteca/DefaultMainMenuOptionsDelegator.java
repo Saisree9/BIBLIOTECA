@@ -1,5 +1,5 @@
 package com.twu.biblioteca;
-
+//delegates the main menu options
 public class DefaultMainMenuOptionsDelegator implements MainMenuOptionDelegator {
 
     private Authenticator authenticator;
