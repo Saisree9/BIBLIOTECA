@@ -101,7 +101,7 @@ public class LoginOptionTest {
     public void shouldGetMainMenuOptionAndDoOperationAfterDelegation() {
         String libraryNumber = "USR1";
         String passWord = "PSWRD1";
-        User user = new User("USR1", "PSWRD1", "user");
+        User user = new User("USR1", "PSWRD1", "Librarian");
         DelegatorFactory delegatorFactory = mock(DelegatorFactory.class);
         MainMenuOptionDelegator mainMenuOptionDelegator = mock(LibrarianMainMenuOptionsDelegator.class);
         MainMenuOption mainMenuOption = mock(MainMenuOption.class);
@@ -119,6 +119,41 @@ public class LoginOptionTest {
         verify(delegatorFactory).getMainMenuOptionDelegator(user);
         verify(mainMenuOptionDelegator).getMainMenuOption(console, library, movieStore);
         verify(mainMenuOption).doOperation();
+    }
+
+    @Test
+    public void shouldDoOperationOnlyWhenTheUserNotEqualToNull() {
+        String libraryNumber = "USR1";
+        String passWord = "PSWRD1";
+        User user = new User("USR1", "PSWRD1", "Librarian");
+        DelegatorFactory delegatorFactory = mock(DelegatorFactory.class);
+        MainMenuOptionDelegator mainMenuOptionDelegator = mock(LibrarianMainMenuOptionsDelegator.class);
+        MainMenuOption mainMenuOption = mock(MainMenuOption.class);
+        Authenticator authenticator = mock(Authenticator.class);
+        LoginOption loginOption = new LoginOption(console, library, movieStore, authenticator, delegatorFactory);
+
+        when(delegatorFactory.getMainMenuOptionDelegator(user)).thenReturn(mainMenuOptionDelegator);
+        when(console.getUserInput()).thenReturn(libraryNumber).thenReturn(passWord);
+        when(mainMenuOptionDelegator.getMainMenuOption(console, library, movieStore)).thenReturn(mainMenuOption);
+        when(authenticator.authenticate(libraryNumber, passWord)).thenReturn(user);
+
+        loginOption.doOperation();
+
+        verify(authenticator).authenticate(libraryNumber, passWord);
+        verify(delegatorFactory).getMainMenuOptionDelegator(user);
+        verify(mainMenuOptionDelegator).getMainMenuOption(console, library, movieStore);
+        verify(mainMenuOption).doOperation();
+    }
+
+    @Test
+    public void shouldDisplayMessageWhenUserEqualToNull() {
+        DelegatorFactory delegatorFactory = mock(DelegatorFactory.class);
+        Authenticator authenticator = mock(Authenticator.class);
+        LoginOption loginOption = new LoginOption(console, library, movieStore, authenticator, delegatorFactory);
+
+        loginOption.doOperation();
+        
+        verify(console).display("Authentication failed");
     }
 
 

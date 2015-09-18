@@ -19,10 +19,11 @@ public class LoginOption implements MainMenuOption {
     @Override
     public void doOperation() {
         user = authenticateUserDetails();
-        MainMenuOptionDelegator mainMenuOptionDelegator = delegatorFactory.getMainMenuOptionDelegator(user);
-        MainMenuOption mainMenuOption = mainMenuOptionDelegator.getMainMenuOption(console, library, movieStore);
-        mainMenuOption.doOperation();
-
+        if (user != null) {
+            MainMenuOptionDelegator mainMenuOptionDelegator = delegatorFactory.getMainMenuOptionDelegator(user);
+            MainMenuOption mainMenuOption = mainMenuOptionDelegator.getMainMenuOption(console, library, movieStore);
+            mainMenuOption.doOperation();
+        } else console.display("Authentication failed");
     }
 
     private User authenticateUserDetails() {
