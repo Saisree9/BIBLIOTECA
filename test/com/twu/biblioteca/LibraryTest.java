@@ -15,6 +15,7 @@ public class LibraryTest {
     private Book book2 = new Book("Head First Java", "Bert", 1991);
 
     private Library library;
+    private User user = new User("111-2222", "3", "user", "sai", "sai@gmail.com", "7660029504");
 
     @Before
     public void setUp() {
@@ -31,48 +32,55 @@ public class LibraryTest {
 
     @Test
     public void shouldReturnTrueIfBookExistInTheLibrary() {
-        assertEquals(true, library.isBookExist(new Book("Java design patterns", "pankaj", 1887)));
+        assertEquals(true, library.isBookExist(new Book("Java design patterns", "pankaj", 1887), user));
     }
 
     @Test
     public void shouldRemoveBookFromTheLibraryIfBookIsCheckedOut() {
-        library.checkOutBook(book1);
+        library.checkOutBook(book1, user);
         assertFalse(books.contains(book1));
     }
 
     @Test
     public void shouldReturnMessageAfterRemovingBookFromTheLibraryIfBookIsSuccessfullyCheckedOut() {
-        String returnMessage = library.checkOutBook(book1);
+        String returnMessage = library.checkOutBook(book1, user);
         assertEquals("Thank you ! Enjoy the book\n", returnMessage);
     }
 
     @Test
     public void shouldReturnMessageIfBookIsUnsuccessfullyCheckedOut() {
-        String returnMessage = library.checkOutBook(new Book("java", "kent", 1990));
+        String returnMessage = library.checkOutBook(new Book("java", "kent", 1990), user);
         assertEquals("That book is not available\n", returnMessage);
     }
 
     @Test
     public void shouldReturnMessageAfterRemovingBookwhichHasEqualTitleIfBookIsSuccessfullyCheckedOut() {
         Book book = new Book("Java design patterns", "UNKNOWN_AUTHOR", 0);
-        String returnMessage = library.checkOutBook(book);
+        String returnMessage = library.checkOutBook(book, user);
         assertEquals("Thank you ! Enjoy the book\n", returnMessage);
     }
 
     @Test
     public void shouldReturnMessageAfterCheckingOutBookIfBookIsSuccessfullyReturned() {
         Book book = new Book("Java design patterns", "UNKNOWN_AUTHOR", 0);
-        library.checkOutBook(book);
-        String returnMessage = library.returnBook(book);
+        library.checkOutBook(book, user);
+        String returnMessage = library.returnBook(book, user);
         assertEquals("Thank You ! for returning book\n", returnMessage);
     }
 
     @Test
     public void shouldReturnMessageAfterCheckingOutBookIfBookIsUnsuccessfullyReturned() {
         Book book = new Book("Java design", "UNKNOWN_AUTHOR", 0);
-        library.checkOutBook(book);
-        String returnMessage = library.returnBook(book);
+        library.checkOutBook(book, user);
+        String returnMessage = library.returnBook(book, user);
         assertEquals("That is not a valid book to return\n", returnMessage);
+    }
+
+    @Test
+    public void shouldReturnToStringFormatOfListOfBookDetails() {
+        Book book = new Book("Java design", "UNKNOWN_AUTHOR", 0);
+        library.checkOutBook(book, user);
+        assertEquals("", library.displayBookDetails().toString());
     }
 
 
