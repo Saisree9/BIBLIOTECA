@@ -85,4 +85,12 @@ public class LoginOptionTest {
                 "EnterTheOption:");
 
     }
+
+    @Test
+    public void shouldReturnLibrarianMainMenuOptionDelegatorIfTheRoleIsLibrarian() {
+        when(console.getUserInput()).thenReturn("USR2", "PSWRD2");
+        loginOption.doOperation();
+        mainMenuOptionDelegator = loginOption.getMainMenuOptionDelegator();
+        assertEquals(mainMenuOptionDelegator.getClass(), LibrarianMainMenuOptionsDelegator.class);
+    }
 }
