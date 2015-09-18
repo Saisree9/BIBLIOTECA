@@ -13,33 +13,34 @@ public class DelegatorFactory {
         String role = user.getRole();
         switch (role) {
             case "user":
-                console.display("Option1:ListBooks\n" +
-                        "Option2:UserDetails\n" +
-                        "Option3:CheckOutBooks\n" +
-                        "Option4:ReturnOption\n" +
-                        "Option5:ListMovies\n" +
-                        "Option6:CheckOutMovie\n" +
-                        "Option7:logout\n" +
+                console.display("1:ListBooks\n" +
+                        "2:UserDetails\n" +
+                        "3:CheckOutBooks\n" +
+                        "4:ReturnOption\n" +
+                        "5:ListMovies\n" +
+                        "6:CheckOutMovie\n" +
+                        "7:logout\n" +
                         "\n" +
                         "EnterTheOption:");
                 return new NormalUserMainMenuOptionsDelegator(user);
             case "librarian":
-                console.display("Option1:ListBooks\n" +
-                        "Option2:UserDetails\n" +
-                        "Option3:CheckOutBooks\n" +
-                        "Option4:ReturnOption\n" +
-                        "Option5:ListMovies\n" +
-                        "Option6:CheckOutMovie\n" +
-                        "Option7:logout\n" +
-                        "Option8:BookDetails\n" +
+                console.display("1:ListBooks\n" +
+                        "2:UserDetails\n" +
+                        "3:CheckOutBooks\n" +
+                        "4:ReturnOption\n" +
+                        "5:ListMovies\n" +
+                        "6:CheckOutMovie\n" +
+                        "7:logout\n" +
+                        "8:BookDetails\n" +
                         "\n" +
                         "EnterTheOption:");
                 return new LibrarianMainMenuOptionsDelegator(user);
             default:
-                console.display("Option1:ListBooks\n" +
-                        "Option2:Quit\n" +
-                        "Option4:ListMovies\n" +
-                        "Option5:CheckOutMovie\n" +
+                console.display("1:ListBooks\n" +
+                        "2:Quit\n" +
+                        "3:Login\n" +
+                        "4:ListMovies\n" +
+                        "5:CheckOutMovie\n" +
                         "\nEnterTheOption:");
                 return new DefaultMainMenuOptionsDelegator(authenticator, this);
         }

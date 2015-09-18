@@ -28,13 +28,13 @@ public class DelegatorFactoryTest {
     @Test
     public void shouldDisplayUserMainMenuOptionsWhenTheRoleOfTheCustomerIsUser() {
         delegatorFactory.getMainMenuOptionDelegator(new User("USR1", "PSWRD1", "user"));
-        verify(console).display("Option1:ListBooks\n" +
-                "Option2:UserDetails\n" +
-                "Option3:CheckOutBooks\n" +
-                "Option4:ReturnOption\n" +
-                "Option5:ListMovies\n" +
-                "Option6:CheckOutMovie\n" +
-                "Option7:logout\n" +
+        verify(console).display("1:ListBooks\n" +
+                "2:UserDetails\n" +
+                "3:CheckOutBooks\n" +
+                "4:ReturnOption\n" +
+                "5:ListMovies\n" +
+                "6:CheckOutMovie\n" +
+                "7:logout\n" +
                 "\n" +
                 "EnterTheOption:");
 
@@ -50,14 +50,14 @@ public class DelegatorFactoryTest {
     @Test
     public void shouldDisplayLibrarianMainMenuOptionsWhenTheRoleOfTheCustomerIsLibrarian() {
         delegatorFactory.getMainMenuOptionDelegator(new User("USR1", "PSWRD1", "librarian"));
-        verify(console).display("Option1:ListBooks\n" +
-                "Option2:UserDetails\n" +
-                "Option3:CheckOutBooks\n" +
-                "Option4:ReturnOption\n" +
-                "Option5:ListMovies\n" +
-                "Option6:CheckOutMovie\n" +
-                "Option7:logout\n" +
-                "Option8:BookDetails\n" +
+        verify(console).display("1:ListBooks\n" +
+                "2:UserDetails\n" +
+                "3:CheckOutBooks\n" +
+                "4:ReturnOption\n" +
+                "5:ListMovies\n" +
+                "6:CheckOutMovie\n" +
+                "7:logout\n" +
+                "8:BookDetails\n" +
                 "\n" +
                 "EnterTheOption:");
 
