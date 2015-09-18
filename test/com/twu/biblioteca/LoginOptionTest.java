@@ -19,6 +19,7 @@ public class LoginOptionTest {
     private LoginOption loginOption;
     private Authenticator authenticator;
     private MainMenuOptionDelegator mainMenuOptionDelegator;
+    private DelegatorFactory delegatorFactory = new DelegatorFactory(console, authenticator);
 
     @Before
     public void setUp() {
@@ -27,27 +28,27 @@ public class LoginOptionTest {
         listOfBooks.add(book);
         library = new Library(listOfBooks);
         authenticator = new Authenticator(users);
-        loginOption = new LoginOption(console, library, movieStore, authenticator);
+        loginOption = new LoginOption(console, library, movieStore, authenticator, delegatorFactory);
 
     }
 
     @Test
     public void shouldGetInputLibraryNumberAndPasswordFromUser() {
-        when(console.getUserInput()).thenReturn("USR1", "PSWRD1");
+        when(console.getUserInput()).thenReturn("USR1", "PSWRD1", "1");
         loginOption.doOperation();
-        verify(console, times(2)).getUserInput();
+        verify(console, times(3)).getUserInput();
     }
 
     @Test
     public void shouldReturnRegisteredUserDetailsAfterAuthenticationOfLibraryNumberAndPassword() {
-        when(console.getUserInput()).thenReturn("USR1", "PSWRD1");
+        when(console.getUserInput()).thenReturn("USR1", "PSWRD1", "1");
         User actual = loginOption.authenticateUserDetails();
         assertEquals(new User("USR1", "PSWRD1", "user"), actual);
     }
 
     @Test
     public void shouldDisplayUserMainMenuOptionsWhenTheRoleOfTheCustomerIsUser() {
-        when(console.getUserInput()).thenReturn("USR1", "PSWRD1");
+        when(console.getUserInput()).thenReturn("USR1", "PSWRD1", "1");
         loginOption.doOperation();
         verify(console).display("Option1:ListBooks\n" +
                 "Option2:UserDetails\n" +
@@ -63,15 +64,16 @@ public class LoginOptionTest {
 
     @Test
     public void shouldReturnUserMainMenuOptionDelegatorIfTheRoleIsUser() {
-        when(console.getUserInput()).thenReturn("USR1", "PSWRD1");
+        when(console.getUserInput()).thenReturn("USR1", "PSWRD1", "1");
         loginOption.doOperation();
-        mainMenuOptionDelegator = loginOption.getMainMenuOptionDelegator();
+        User user = new User("USR1", "PSWRD1", "user");
+        mainMenuOptionDelegator = delegatorFactory.getMainMenuOptionDelegator(user);
         assertEquals(mainMenuOptionDelegator.getClass(), UserMainMenuOptionsDelegator.class);
     }
 
     @Test
     public void shouldDisplayLibrarianMainMenuOptionsWhenTheRoleOfTheCustomerIsLibrarian() {
-        when(console.getUserInput()).thenReturn("USR2", "PSWRD2");
+        when(console.getUserInput()).thenReturn("USR2", "PSWRD2", "1");
         loginOption.doOperation();
         verify(console).display("Option1:ListBooks\n" +
                 "Option2:UserDetails\n" +
@@ -88,9 +90,12 @@ public class LoginOptionTest {
 
     @Test
     public void shouldReturnLibrarianMainMenuOptionDelegatorIfTheRoleIsLibrarian() {
-        when(console.getUserInput()).thenReturn("USR2", "PSWRD2");
+        when(console.getUserInput()).thenReturn("USR2", "PSWRD2", "1");
         loginOption.doOperation();
-        mainMenuOptionDelegator = loginOption.getMainMenuOptionDelegator();
-        assertEquals(mainMenuOptionDelegator.getClass(), LibrarianMainMenuOptionsDelegator.class);
+        User user = new User("USR1", "PSWRD1", "user");
+        mainMenuOptionDelegator = delegatorFactory.getMainMenuOptionDelegator(user);
+        assertEquals(mainMenuOptionDelegator.getClass(), UserMainMenuOptionsDelegator.class);
     }
+
+
 }

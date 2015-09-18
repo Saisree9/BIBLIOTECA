@@ -6,57 +6,25 @@ public class LoginOption implements MainMenuOption {
     private Authenticator authenticator;
     private User user;
     private MovieStore movieStore;
+    DelegatorFactory delegatorFactory;
 
-    public LoginOption(Console console, Library library, MovieStore movieStore, Authenticator authenticator) {
+    public LoginOption(Console console, Library library, MovieStore movieStore, Authenticator authenticator, DelegatorFactory delegatorFactory) {
         this.console = console;
         this.library = library;
         this.movieStore = movieStore;
         this.authenticator = authenticator;
+        this.delegatorFactory = delegatorFactory;
     }
 
     @Override
     public void doOperation() {
         user = authenticateUserDetails();
-        MainMenuOptionDelegator mainMenuOptionDelegator = getMainMenuOptionDelegator();
+//        if (user != null) {
+        MainMenuOptionDelegator mainMenuOptionDelegator = delegatorFactory.getMainMenuOptionDelegator(user);
+        MainMenuOption mainMenuOption = mainMenuOptionDelegator.getMainMenuOption(console, library, movieStore);
+        mainMenuOption.doOperation();
+
     }
-
-    public MainMenuOptionDelegator getMainMenuOptionDelegator() {
-        String role = user.getRole();
-        switch (role) {
-            case "user":
-                console.display("Option1:ListBooks\n" +
-                        "Option2:UserDetails\n" +
-                        "Option3:CheckOutBooks\n" +
-                        "Option4:ReturnOption\n" +
-                        "Option5:ListMovies\n" +
-                        "Option6:CheckOutMovie\n" +
-                        "Option7:logout\n" +
-                        "\n" +
-                        "EnterTheOption:");
-                return new UserMainMenuOptionsDelegator(user);
-            case "librarian":
-                console.display("Option1:ListBooks\n" +
-                        "Option2:UserDetails\n" +
-                        "Option3:CheckOutBooks\n" +
-                        "Option4:ReturnOption\n" +
-                        "Option5:ListMovies\n" +
-                        "Option6:CheckOutMovie\n" +
-                        "Option7:logout\n" +
-                        "Option8:BookDetails\n" +
-                        "\n" +
-                        "EnterTheOption:");
-                return new LibrarianMainMenuOptionsDelegator(user);
-            default:
-                console.display("Option1:ListBooks\n" +
-                        "Option2:Quit\n" +
-                        "Option4:ListMovies\n" +
-                        "Option5:CheckOutMovie\n" +
-                        "\nEnterTheOption:");
-                return new DefaultMainMenuOptionsDelegator(authenticator);
-        }
-    }
-
-
     public User authenticateUserDetails() {
         String libraryNumber = console.getUserInput();
         String passWord = console.getUserInput();
