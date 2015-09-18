@@ -38,4 +38,8 @@ public class User {
     public boolean hasValidLibraryNumber() {
         return libraryNumber.length() == 8 && libraryNumber.charAt(3) == '-';
     }
+
+    public String getRole() {
+        return role;
+    }
 }

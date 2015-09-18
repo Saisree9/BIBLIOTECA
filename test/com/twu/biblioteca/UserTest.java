@@ -48,4 +48,12 @@ public class UserTest {
         User user1 = new User("Saisree", "S", "user");
         assertFalse(user1.hasValidLibraryNumber());
     }
+
+    @Test
+    public void shouldReturnRoleOfUser() {
+        User user1 = new User("Saisree", "S", "user");
+        assertEquals("user", user1.getRole());
+    }
+
+
 }
