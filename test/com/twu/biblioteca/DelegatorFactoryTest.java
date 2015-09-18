@@ -9,7 +9,6 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 public class DelegatorFactoryTest {
     private List<User> users = new ArrayList<>();
