@@ -20,7 +20,7 @@ public class LoginOption implements MainMenuOption {
         MainMenuOptionDelegator mainMenuOptionDelegator = getMainMenuOptionDelegator();
     }
 
-    public  MainMenuOptionDelegator getMainMenuOptionDelegator() {
+    public MainMenuOptionDelegator getMainMenuOptionDelegator() {
         String role = user.getRole();
         switch (role) {
             case "user":
@@ -34,6 +34,18 @@ public class LoginOption implements MainMenuOption {
                         "\n" +
                         "EnterTheOption:");
                 return new UserMainMenuOptionsDelegator(user);
+            case "librarian":
+                console.display("Option1:ListBooks\n" +
+                        "Option2:UserDetails\n" +
+                        "Option3:CheckOutBooks\n" +
+                        "Option4:ReturnOption\n" +
+                        "Option5:ListMovies\n" +
+                        "Option6:CheckOutMovie\n" +
+                        "Option7:logout\n" +
+                        "Option8:BookDetails\n" +
+                        "\n" +
+                        "EnterTheOption:");
+                return new LibrarianMainMenuOptionsDelegator(user);
             default:
                 console.display("Option1:ListBooks\n" +
                         "Option2:Quit\n" +

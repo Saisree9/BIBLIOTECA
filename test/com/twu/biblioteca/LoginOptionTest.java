@@ -23,6 +23,7 @@ public class LoginOptionTest {
     @Before
     public void setUp() {
         users.add(new User("USR1", "PSWRD1", "user"));
+        users.add(new User("USR2", "PSWRD2", "librarian"));
         listOfBooks.add(book);
         library = new Library(listOfBooks);
         authenticator = new Authenticator(users);
@@ -66,5 +67,22 @@ public class LoginOptionTest {
         loginOption.doOperation();
         mainMenuOptionDelegator = loginOption.getMainMenuOptionDelegator();
         assertEquals(mainMenuOptionDelegator.getClass(), UserMainMenuOptionsDelegator.class);
+    }
+
+    @Test
+    public void shouldDisplayLibrarianMainMenuOptionsWhenTheRoleOfTheCustomerIsLibrarian() {
+        when(console.getUserInput()).thenReturn("USR2", "PSWRD2");
+        loginOption.doOperation();
+        verify(console).display("Option1:ListBooks\n" +
+                "Option2:UserDetails\n" +
+                "Option3:CheckOutBooks\n" +
+                "Option4:ReturnOption\n" +
+                "Option5:ListMovies\n" +
+                "Option6:CheckOutMovie\n" +
+                "Option7:logout\n" +
+                "Option8:BookDetails\n" +
+                "\n" +
+                "EnterTheOption:");
+
     }
 }
