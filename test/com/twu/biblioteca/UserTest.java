@@ -18,9 +18,16 @@ public class UserTest {
     }
 
     @Test
-    public void shouldEqualToUserHavingSameUserNameAndPassword() {
-        User user1 = new User(" Sai", "S", "user");
-        User user2 = new User(" Sai", "S", "user1");
+    public void shouldEqualToUserHavingSameLibraryNumberAndPassword() {
+        User user1 = new User("Sai-sree", "e", "user");
+        User user2 = new User("Sai-sree", "e", "user");
+        assertEquals(user1, user2);
+    }
+
+    @Test
+    public void shouldEqualToUserHavingSameLibraryNumberAndPasswordAndHasValidLibraryNumber() {
+        User user1 = new User("Sai-sree", "e", "user");
+        User user2 = new User("Sai-sree", "e", "user1");
         assertEquals(user1, user2);
     }
 

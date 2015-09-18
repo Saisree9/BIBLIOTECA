@@ -16,9 +16,12 @@ public class User {
         if (this == that) return true;
         if (that == null || getClass() != that.getClass()) return false;
 
-        User thatUserCredentials = (User) that;
-        return this.libraryNumber.equals(thatUserCredentials.libraryNumber) && this.passWord.equals(thatUserCredentials.passWord);
-
+        User thatUser = (User) that;
+        if ((this.hasValidLibraryNumber() && this.libraryNumber.equals(thatUser.libraryNumber))&& this.passWord.equals(thatUser.passWord)) return true;
+//        if (this.libraryNumber.equals(thatUser.libraryNumber)) return true;
+//        if (this.passWord.equals(thatUser.passWord)) return true;
+//        return this.hasValidLibraryNumber() && this.libraryNumber.equals(thatUser.libraryNumber) && this.passWord.equals(thatUser.passWord);
+        return false;
     }
 
     @Override
