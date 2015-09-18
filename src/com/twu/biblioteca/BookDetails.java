@@ -1,17 +1,27 @@
 package com.twu.biblioteca;
 
 public class BookDetails {
-    private String bookTitle;
-    private String libraryNumber;
+    private Book book;
+    private User user;
 
-    public BookDetails(String bookTitle, String libraryNumber) {
-        this.bookTitle = bookTitle;
-        this.libraryNumber = libraryNumber;
+    public BookDetails(Book book, User user) {
+        this.book = book;
+        this.user = user;
     }
 
     @Override
     public String toString() {
-        return "bookTitle='" + bookTitle + '\'' +
-                ", libraryNumber='" + libraryNumber + '\'';
+        return "Book\n" + book + "\n" + "User\n" + user;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        BookDetails that = (BookDetails) o;
+
+        return this.book.equals(that.book) && this.user.equals(that.user);
+
     }
 }
