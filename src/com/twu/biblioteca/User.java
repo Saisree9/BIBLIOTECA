@@ -50,6 +50,6 @@ public class User {
                 ", role='" + role + '\'' +
                 ", name='" + name + '\'' +
                 ", emailID='" + emailID + '\'' +
-                ", mobileNumber='" + mobileNumber + '\'';
+                ", mobileNumber='" + mobileNumber + '\''+"\n";
     }
 }
