@@ -41,7 +41,7 @@ public class DelegatorFactory {
                         "Option4:ListMovies\n" +
                         "Option5:CheckOutMovie\n" +
                         "\nEnterTheOption:");
-                return new DefaultMainMenuOptionsDelegator(authenticator);
+                return new DefaultMainMenuOptionsDelegator(authenticator, this);
         }
     }
 }

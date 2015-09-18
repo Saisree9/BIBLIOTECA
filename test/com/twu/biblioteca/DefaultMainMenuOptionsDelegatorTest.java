@@ -33,7 +33,8 @@ public class DefaultMainMenuOptionsDelegatorTest {
         movies.add(movie1);
         movies.add(movie2);
         movieStore = new MovieStore(movies);
-        delegator = new DefaultMainMenuOptionsDelegator(authenticator);
+        DelegatorFactory delegatorFactory = new DelegatorFactory(console, authenticator);
+        delegator = new DefaultMainMenuOptionsDelegator(authenticator, delegatorFactory);
     }
 
     @Test

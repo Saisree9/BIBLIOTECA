@@ -3,10 +3,11 @@ package com.twu.biblioteca;
 public class DefaultMainMenuOptionsDelegator implements MainMenuOptionDelegator {
 
     private Authenticator authenticator;
-    private MainMenuOptionDelegator mainMenuOptionDelegator;
+    private DelegatorFactory delegatorFactory;
 
-    public DefaultMainMenuOptionsDelegator(Authenticator authenticator) {
+    public DefaultMainMenuOptionsDelegator(Authenticator authenticator, DelegatorFactory delegatorFactory) {
         this.authenticator = authenticator;
+        this.delegatorFactory = delegatorFactory;
     }
 
     public MainMenuOption getMainMenuOption(Console console, Library library, MovieStore movieStore) {
@@ -17,7 +18,7 @@ public class DefaultMainMenuOptionsDelegator implements MainMenuOptionDelegator 
             case 2:
                 return new Quit();
             case 3:
-                return new LoginOption(console, library, movieStore, authenticator,mainMenuOptionDelegator);
+                return new LoginOption(console, library, movieStore, authenticator,delegatorFactory);
             case 4:
                 return new ListMoviesOption(console, movieStore);
             case 5:
