@@ -39,7 +39,7 @@ public class DelegatorFactoryTest {
                 "6:CheckOutMovie\n" +
                 "7:logout\n" +
                 "\n" +
-                "EnterTheOption:");
+                "EnterTheOption:\n");
 
     }
 
@@ -62,7 +62,7 @@ public class DelegatorFactoryTest {
                 "7:logout\n" +
                 "8:BookDetails\n" +
                 "\n" +
-                "EnterTheOption:");
+                "EnterTheOption:\n");
 
     }
 

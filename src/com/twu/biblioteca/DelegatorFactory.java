@@ -21,7 +21,7 @@ public class DelegatorFactory {
                         "6:CheckOutMovie\n" +
                         "7:logout\n" +
                         "\n" +
-                        "EnterTheOption:");
+                        "EnterTheOption:\n");
                 return new NormalUserMainMenuOptionsDelegator(user);
             case "librarian":
                 console.display("1:ListBooks\n" +
@@ -30,10 +30,10 @@ public class DelegatorFactory {
                         "4:ReturnOption\n" +
                         "5:ListMovies\n" +
                         "6:CheckOutMovie\n" +
-                        "7:logout\n" +
-                        "8:BookDetails\n" +
+                        "7:BookDetails\n" +
+                        "8:logout\n" +
                         "\n" +
-                        "EnterTheOption:");
+                        "EnterTheOption:\n");
                 return new LibrarianMainMenuOptionsDelegator(user);
             default:
                 console.display("1:ListBooks\n" +
@@ -41,7 +41,7 @@ public class DelegatorFactory {
                         "3:Login\n" +
                         "4:ListMovies\n" +
                         "5:CheckOutMovie\n" +
-                        "\nEnterTheOption:");
+                        "\nEnterTheOption:\n");
                 return new DefaultMainMenuOptionsDelegator(authenticator, this);
         }
     }
