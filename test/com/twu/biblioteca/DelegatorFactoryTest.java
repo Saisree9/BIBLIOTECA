@@ -59,8 +59,8 @@ public class DelegatorFactoryTest {
                 "4:ReturnOption\n" +
                 "5:ListMovies\n" +
                 "6:CheckOutMovie\n" +
-                "7:logout\n" +
-                "8:BookDetails\n" +
+                "7:BookDetails\n" +
+                "8:logout\n" +
                 "\n" +
                 "EnterTheOption:\n");
 

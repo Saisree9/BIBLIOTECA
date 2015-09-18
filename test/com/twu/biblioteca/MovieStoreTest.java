@@ -23,7 +23,9 @@ public class MovieStoreTest {
 
     @Test
     public void shouldReturnToStringFormatOfTheListOfMovies() {
-        assertEquals("name='Movie1', director='director1', year=1, rating=1.0\nname='Movie2', director='director2', year=2, rating=2.0\n", movieStore.toString());
+        assertEquals("------------------------------------------------------------------------------\n"+
+                "name='Movie1', director='director1', year=1, rating=1.0\nname='Movie2', director='director2', year=2, rating=2.0\n"+
+                "------------------------------------------------------------------------------\n", movieStore.toString());
     }
 
     @Test

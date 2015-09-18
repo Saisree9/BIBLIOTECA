@@ -69,7 +69,6 @@ public class UserTest {
     @Test
     public void shouldReturnToStringFormatOfUserDetails(){
         User user1 = new User("Sai-sree", "S", "user", name, emailID, mobileNumber);
-        System.out.println(user1.toString());
         assertEquals("libraryNumber='Sai-sree', role='user', name='sai', emailID='sai@email.com', mobileNumber='7660029504'\n",user1.toString());
     }
 

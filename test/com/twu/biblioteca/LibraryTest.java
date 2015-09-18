@@ -27,7 +27,9 @@ public class LibraryTest {
     @Test
     public void shouldReturnToStringFormatOfListOfBooks() {
 
-        assertEquals("Title: " + "Java design patterns" + '\'' + ", Author: " + "pankaj" + '\'' + ", YearPublished: " + 1887 + "\n" + "Title: " + "Head First Java" + '\'' + ", Author: " + "Bert" + '\'' + ", YearPublished: " + 1991 + "\n", library.toString());
+        assertEquals("------------------------------------------------------------------------------\n" +
+                "Title: " + "Java design patterns" + '\'' + ", Author: " + "pankaj" + '\'' + ", YearPublished: " + 1887 + "\n" + "Title: " + "Head First Java" + '\'' + ", Author: " + "Bert" + '\'' + ", YearPublished: " + 1991 + "\n" +
+                "------------------------------------------------------------------------------\n", library.toString());
     }
 
     @Test
