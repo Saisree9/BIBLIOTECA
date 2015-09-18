@@ -12,9 +12,9 @@ public class Authenticator {
     }
 
     public User authenticate(String libraryNumber, String password) {
-        User user = new User(libraryNumber, password, "NULL");
+        User user = new User(libraryNumber, password, "NULL", "NULL", "NULL", "NULL");
         for (User user1 : users) {
-            if (user.equals(user1))
+            if (user1.equals(user))
                 return user1;
         }
         return null;

@@ -16,18 +16,21 @@ public class DelegatorFactoryTest {
     private Authenticator authenticator;
     private MainMenuOptionDelegator mainMenuOptionDelegator;
     private DelegatorFactory delegatorFactory = new DelegatorFactory(console, authenticator);
+    private String name = "sai";
+    private String emailID = "sai@gmail.com";
+    private String mobileNumber = "7660029504";
 
     @Before
     public void setUp() {
-        users.add(new User("USR1", "PSWRD1", "user"));
-        users.add(new User("USR2", "PSWRD2", "librarian"));
+        users.add(new User("111-2222", "3", "user", "sai", "sai@gmail.com", "7660029504"));
+        users.add(new User("111-2223", "4", "librarian", "sree", "sree@gmail.com", "7660029503"));
         authenticator = new Authenticator(users);
 
     }
 
     @Test
     public void shouldDisplayUserMainMenuOptionsWhenTheRoleOfTheCustomerIsUser() {
-        delegatorFactory.getMainMenuOptionDelegator(new User("USR1", "PSWRD1", "user"));
+        delegatorFactory.getMainMenuOptionDelegator(new User("111-2222", "3", "user", name, emailID, mobileNumber));
         verify(console).display("1:ListBooks\n" +
                 "2:UserDetails\n" +
                 "3:CheckOutBooks\n" +
@@ -42,14 +45,14 @@ public class DelegatorFactoryTest {
 
     @Test
     public void shouldReturnUserMainMenuOptionDelegatorIfTheRoleIsUser() {
-        User user = new User("USR1", "PSWRD1", "user");
+        User user = new User("111-2222", "3", "user", name, emailID, mobileNumber);
         mainMenuOptionDelegator = delegatorFactory.getMainMenuOptionDelegator(user);
         assertEquals(mainMenuOptionDelegator.getClass(), NormalUserMainMenuOptionsDelegator.class);
     }
 
     @Test
     public void shouldDisplayLibrarianMainMenuOptionsWhenTheRoleOfTheCustomerIsLibrarian() {
-        delegatorFactory.getMainMenuOptionDelegator(new User("USR1", "PSWRD1", "librarian"));
+        delegatorFactory.getMainMenuOptionDelegator(new User("111-2222", "3", "librarian", name, emailID, mobileNumber));
         verify(console).display("1:ListBooks\n" +
                 "2:UserDetails\n" +
                 "3:CheckOutBooks\n" +
@@ -65,7 +68,7 @@ public class DelegatorFactoryTest {
 
     @Test
     public void shouldReturnLibrarianMainMenuOptionDelegatorIfTheRoleIsLibrarian() {
-        User user = new User("USR1", "PSWRD1", "user");
+        User user = new User("111-2222", "3", "user", name, emailID, mobileNumber);
         mainMenuOptionDelegator = delegatorFactory.getMainMenuOptionDelegator(user);
         assertEquals(mainMenuOptionDelegator.getClass(), NormalUserMainMenuOptionsDelegator.class);
     }

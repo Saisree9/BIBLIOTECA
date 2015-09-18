@@ -24,12 +24,15 @@ public class LoginOptionTest {
     private DelegatorFactory delegatorFactory = new DelegatorFactory(console, authenticator);
     @Rule
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
+    private String name="sai";
+    private String emailID="sai@gmail.com";
+    private String mobileNumber="7660029504";
 
 
     @Before
     public void setUp() {
-        users.add(new User("USR1", "PSWRD1", "user"));
-        users.add(new User("USR2", "PSWRD2", "librarian"));
+        users.add(new User("111-2222", "3", "user", "sai", "sai@gmail.com", "7660020504"));
+        users.add(new User("111-2221", "4", "librarian", "sree", "sree@gmail.com", "7660029504"));
         listOfBooks.add(book);
         library = new Library(listOfBooks);
         authenticator = new Authenticator(users);
@@ -39,7 +42,7 @@ public class LoginOptionTest {
 
     @Test
     public void shouldGetInputLibraryNumberAndPasswordFromUser() {
-        when(console.getUserInput()).thenReturn("USR1", "PSWRD1", "1", "7", "2");
+        when(console.getUserInput()).thenReturn("111-2222", "3", "1", "7", "2");
 
         exit.expectSystemExitWithStatus(0);
 
@@ -50,7 +53,7 @@ public class LoginOptionTest {
 
     @Test
     public void shouldDisplayUserMainMenuOptionsWhenTheRoleOfTheCustomerIsUser() {
-        when(console.getUserInput()).thenReturn("USR1", "PSWRD1", "1", "7", "2");
+        when(console.getUserInput()).thenReturn("111-2222", "3", "1", "7", "2");
 
         exit.expectSystemExitWithStatus(0);
 
@@ -70,10 +73,10 @@ public class LoginOptionTest {
 
     @Test
     public void shouldReturnUserMainMenuOptionDelegatorIfTheRoleIsUser() {
-        User user = new User("USR1", "PSWRD1", "user");
+        User user = new User("111-2222", "3", "user", name, emailID, mobileNumber);
         mainMenuOptionDelegator = delegatorFactory.getMainMenuOptionDelegator(user);
 
-        when(console.getUserInput()).thenReturn("USR1", "PSWRD1", "1", "7", "2");
+        when(console.getUserInput()).thenReturn("111-2222", "3", "1", "7", "2");
         exit.expectSystemExitWithStatus(0);
         loginOption.doOperation();
 
@@ -82,7 +85,7 @@ public class LoginOptionTest {
 
     @Test
     public void shouldDisplayLibrarianMainMenuOptionsWhenTheRoleOfTheCustomerIsLibrarian() {
-        when(console.getUserInput()).thenReturn("USR2", "PSWRD2", "1", "8", "2");
+        when(console.getUserInput()).thenReturn("111-2221", "4", "1", "8", "2");
 
         exit.expectSystemExitWithStatus(0);
         loginOption.doOperation();
@@ -102,10 +105,10 @@ public class LoginOptionTest {
 
     @Test
     public void shouldReturnLibrarianMainMenuOptionDelegatorIfTheRoleIsLibrarian() {
-        User user = new User("USR1", "PSWRD1", "user");
+        User user = new User("111-2222", "3", "user", name, emailID, mobileNumber);
         mainMenuOptionDelegator = delegatorFactory.getMainMenuOptionDelegator(user);
 
-        when(console.getUserInput()).thenReturn("USR2", "PSWRD2", "1", "8", "2");
+        when(console.getUserInput()).thenReturn("111-2221", "4", "1", "8", "2");
 
         exit.expectSystemExitWithStatus(0);
         loginOption.doOperation();
@@ -115,9 +118,9 @@ public class LoginOptionTest {
 
     @Test
     public void shouldGetMainMenuOptionAndDoOperationAfterDelegation() {
-        String libraryNumber = "USR1";
-        String passWord = "PSWRD1";
-        User user = new User("USR1", "PSWRD1", "Librarian");
+        String libraryNumber = "111-2222";
+        String passWord = "3";
+        User user = new User("111-2222", "3", "Librarian", name, emailID, mobileNumber);
         DelegatorFactory delegatorFactory = mock(DelegatorFactory.class);
         MainMenuOptionDelegator mainMenuOptionDelegator = mock(LibrarianMainMenuOptionsDelegator.class);
         MainMenuOption mainMenuOption = mock(LogOutOption.class);
@@ -141,9 +144,9 @@ public class LoginOptionTest {
 
     @Test
     public void shouldDoOperationOnlyWhenTheUserNotEqualToNull() {
-        String libraryNumber = "USR1";
-        String passWord = "PSWRD1";
-        User user = new User("USR1", "PSWRD1", "Librarian");
+        String libraryNumber = "111-2222";
+        String passWord = "3";
+        User user = new User("111-2222", "3", "Librarian", name, emailID, mobileNumber);
         DelegatorFactory delegatorFactory = mock(DelegatorFactory.class);
         MainMenuOptionDelegator mainMenuOptionDelegator = mock(LibrarianMainMenuOptionsDelegator.class);
         MainMenuOption mainMenuOption = mock(MainMenuOption.class);
