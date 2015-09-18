@@ -1,10 +1,11 @@
 package com.twu.biblioteca;
 
+import jdk.nashorn.internal.ir.WhileNode;
+
 public class LoginOption implements MainMenuOption {
     private Console console;
     private Library library;
     private Authenticator authenticator;
-    private User user;
     private MovieStore movieStore;
     private DelegatorFactory delegatorFactory;
 
@@ -18,16 +19,23 @@ public class LoginOption implements MainMenuOption {
 
     @Override
     public void doOperation() {
-        user = authenticateUserDetails();
-        if (user != null) {
-            MainMenuOptionDelegator mainMenuOptionDelegator = delegatorFactory.getMainMenuOptionDelegator(user);
-            MainMenuOption mainMenuOption = mainMenuOptionDelegator.getMainMenuOption(console, library, movieStore);
-            mainMenuOption.doOperation();
-        } else console.display("Authentication failed");
+        User user = authenticateUserDetails();
+        while (true) {
+            if (user != null) {
+                MainMenuOptionDelegator mainMenuOptionDelegator = delegatorFactory.getMainMenuOptionDelegator(user);
+                MainMenuOption mainMenuOption = mainMenuOptionDelegator.getMainMenuOption(console, library, movieStore);
+                mainMenuOption.doOperation();
+            } else {
+                console.display("Authentication failed");
+                break;
+            }
+        }
     }
 
     private User authenticateUserDetails() {
+        console.display("Enter library number: \n");
         String libraryNumber = console.getUserInput();
+        console.display("Enter password: \n");
         String passWord = console.getUserInput();
         return authenticator.authenticate(libraryNumber, passWord);
     }

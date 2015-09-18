@@ -1,7 +1,9 @@
 package com.twu.biblioteca;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,9 @@ public class LoginOptionTest {
     private Authenticator authenticator;
     private MainMenuOptionDelegator mainMenuOptionDelegator;
     private DelegatorFactory delegatorFactory = new DelegatorFactory(console, authenticator);
+    @Rule
+    public final ExpectedSystemExit exit = ExpectedSystemExit.none();
+
 
     @Before
     public void setUp() {
@@ -34,16 +39,20 @@ public class LoginOptionTest {
 
     @Test
     public void shouldGetInputLibraryNumberAndPasswordFromUser() {
-        when(console.getUserInput()).thenReturn("USR1", "PSWRD1", "1");
+        when(console.getUserInput()).thenReturn("USR1", "PSWRD1", "1", "7", "2");
+
+        exit.expectSystemExitWithStatus(0);
 
         loginOption.doOperation();
 
-        verify(console, times(3)).getUserInput();
+        verify(console, times(5)).getUserInput();
     }
 
     @Test
     public void shouldDisplayUserMainMenuOptionsWhenTheRoleOfTheCustomerIsUser() {
-        when(console.getUserInput()).thenReturn("USR1", "PSWRD1", "1");
+        when(console.getUserInput()).thenReturn("USR1", "PSWRD1", "1", "7", "2");
+
+        exit.expectSystemExitWithStatus(0);
 
         loginOption.doOperation();
 
@@ -64,8 +73,8 @@ public class LoginOptionTest {
         User user = new User("USR1", "PSWRD1", "user");
         mainMenuOptionDelegator = delegatorFactory.getMainMenuOptionDelegator(user);
 
-        when(console.getUserInput()).thenReturn("USR1", "PSWRD1", "1");
-
+        when(console.getUserInput()).thenReturn("USR1", "PSWRD1", "1", "7", "2");
+        exit.expectSystemExitWithStatus(0);
         loginOption.doOperation();
 
         assertEquals(mainMenuOptionDelegator.getClass(), NormalUserMainMenuOptionsDelegator.class);
@@ -73,8 +82,11 @@ public class LoginOptionTest {
 
     @Test
     public void shouldDisplayLibrarianMainMenuOptionsWhenTheRoleOfTheCustomerIsLibrarian() {
-        when(console.getUserInput()).thenReturn("USR2", "PSWRD2", "1");
+        when(console.getUserInput()).thenReturn("USR2", "PSWRD2", "1", "8", "2");
+
+        exit.expectSystemExitWithStatus(0);
         loginOption.doOperation();
+
         verify(console).display("Option1:ListBooks\n" +
                 "Option2:UserDetails\n" +
                 "Option3:CheckOutBooks\n" +
@@ -90,10 +102,14 @@ public class LoginOptionTest {
 
     @Test
     public void shouldReturnLibrarianMainMenuOptionDelegatorIfTheRoleIsLibrarian() {
-        when(console.getUserInput()).thenReturn("USR2", "PSWRD2", "1");
-        loginOption.doOperation();
         User user = new User("USR1", "PSWRD1", "user");
         mainMenuOptionDelegator = delegatorFactory.getMainMenuOptionDelegator(user);
+
+        when(console.getUserInput()).thenReturn("USR2", "PSWRD2", "1", "8", "2");
+
+        exit.expectSystemExitWithStatus(0);
+        loginOption.doOperation();
+
         assertEquals(mainMenuOptionDelegator.getClass(), NormalUserMainMenuOptionsDelegator.class);
     }
 
@@ -104,14 +120,16 @@ public class LoginOptionTest {
         User user = new User("USR1", "PSWRD1", "Librarian");
         DelegatorFactory delegatorFactory = mock(DelegatorFactory.class);
         MainMenuOptionDelegator mainMenuOptionDelegator = mock(LibrarianMainMenuOptionsDelegator.class);
-        MainMenuOption mainMenuOption = mock(MainMenuOption.class);
+        MainMenuOption mainMenuOption = mock(LogOutOption.class);
         Authenticator authenticator = mock(Authenticator.class);
         LoginOption loginOption = new LoginOption(console, library, movieStore, authenticator, delegatorFactory);
 
         when(delegatorFactory.getMainMenuOptionDelegator(user)).thenReturn(mainMenuOptionDelegator);
         when(console.getUserInput()).thenReturn(libraryNumber).thenReturn(passWord);
-        when(mainMenuOptionDelegator.getMainMenuOption(console, library, movieStore)).thenReturn(mainMenuOption);
+        when(mainMenuOptionDelegator.getMainMenuOption(console, library, movieStore)).thenReturn(mainMenuOption).thenReturn(new Quit());
         when(authenticator.authenticate(libraryNumber, passWord)).thenReturn(user);
+        exit.expectSystemExitWithStatus(0);
+
 
         loginOption.doOperation();
 
@@ -134,8 +152,10 @@ public class LoginOptionTest {
 
         when(delegatorFactory.getMainMenuOptionDelegator(user)).thenReturn(mainMenuOptionDelegator);
         when(console.getUserInput()).thenReturn(libraryNumber).thenReturn(passWord);
-        when(mainMenuOptionDelegator.getMainMenuOption(console, library, movieStore)).thenReturn(mainMenuOption);
+        when(mainMenuOptionDelegator.getMainMenuOption(console, library, movieStore)).thenReturn(mainMenuOption).thenReturn(new Quit());
         when(authenticator.authenticate(libraryNumber, passWord)).thenReturn(user);
+        exit.expectSystemExitWithStatus(0);
+
 
         loginOption.doOperation();
 
