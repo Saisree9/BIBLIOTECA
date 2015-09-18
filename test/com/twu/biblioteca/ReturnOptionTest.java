@@ -18,14 +18,15 @@ public class ReturnOptionTest {
     private Book book2 = new Book("Head First Java", "Bert", 1991);
     private MainMenuOption returnOption;
     private MainMenuOption checkOutOption;
+    private User user = new User("111-2222", "3", "user", "sai", "sai@gmail.com", "7660029504");
 
     @Before
     public void setUp() {
         listOfBooks.add(book1);
         listOfBooks.add(book2);
         Library library = new Library(listOfBooks);
-        returnOption = new ReturnBookOption(library, console);
-        checkOutOption = new CheckOutBookOption(library, console);
+        returnOption = new ReturnBookOption(library, console, user);
+        checkOutOption = new CheckOutBookOption(library, console, user);
     }
 
     @Test

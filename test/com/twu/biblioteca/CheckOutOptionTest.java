@@ -16,6 +16,7 @@ public class CheckOutOptionTest {
     private Book book1 = new Book("Java design patterns", "pankaj", 1887);
     private Book book2 = new Book("Head First Java", "Bert", 1991);
     private MainMenuOption checkOutOption;
+    private User user = new User("222-3333", "4", "user", "sai", "sai@gmail.com", "7660029504");
 
 
     @Before
@@ -23,7 +24,7 @@ public class CheckOutOptionTest {
         listOfBooks.add(book1);
         listOfBooks.add(book2);
         Library library = new Library(listOfBooks);
-        checkOutOption = new CheckOutBookOption(library, console);
+        checkOutOption = new CheckOutBookOption(library, console, user);
     }
 
     @Test
