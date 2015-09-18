@@ -15,7 +15,7 @@ public class Authenticator {
         User user = new User(libraryNumber, password, "NULL");
         for (User user1 : users) {
             if (user.equals(user1))
-                return user;
+                return user1;
         }
         return null;
     }
