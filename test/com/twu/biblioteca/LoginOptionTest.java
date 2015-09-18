@@ -35,21 +35,18 @@ public class LoginOptionTest {
     @Test
     public void shouldGetInputLibraryNumberAndPasswordFromUser() {
         when(console.getUserInput()).thenReturn("USR1", "PSWRD1", "1");
-        loginOption.doOperation();
-        verify(console, times(3)).getUserInput();
-    }
 
-    @Test
-    public void shouldReturnRegisteredUserDetailsAfterAuthenticationOfLibraryNumberAndPassword() {
-        when(console.getUserInput()).thenReturn("USR1", "PSWRD1", "1");
-        User actual = loginOption.authenticateUserDetails();
-        assertEquals(new User("USR1", "PSWRD1", "user"), actual);
+        loginOption.doOperation();
+
+        verify(console, times(3)).getUserInput();
     }
 
     @Test
     public void shouldDisplayUserMainMenuOptionsWhenTheRoleOfTheCustomerIsUser() {
         when(console.getUserInput()).thenReturn("USR1", "PSWRD1", "1");
+
         loginOption.doOperation();
+
         verify(console).display("Option1:ListBooks\n" +
                 "Option2:UserDetails\n" +
                 "Option3:CheckOutBooks\n" +
@@ -64,10 +61,13 @@ public class LoginOptionTest {
 
     @Test
     public void shouldReturnUserMainMenuOptionDelegatorIfTheRoleIsUser() {
-        when(console.getUserInput()).thenReturn("USR1", "PSWRD1", "1");
-        loginOption.doOperation();
         User user = new User("USR1", "PSWRD1", "user");
         mainMenuOptionDelegator = delegatorFactory.getMainMenuOptionDelegator(user);
+
+        when(console.getUserInput()).thenReturn("USR1", "PSWRD1", "1");
+
+        loginOption.doOperation();
+
         assertEquals(mainMenuOptionDelegator.getClass(), UserMainMenuOptionsDelegator.class);
     }
 
@@ -95,6 +95,30 @@ public class LoginOptionTest {
         User user = new User("USR1", "PSWRD1", "user");
         mainMenuOptionDelegator = delegatorFactory.getMainMenuOptionDelegator(user);
         assertEquals(mainMenuOptionDelegator.getClass(), UserMainMenuOptionsDelegator.class);
+    }
+
+    @Test
+    public void shouldGetMainMenuOptionAndDoOperationAfterDelegation() {
+        String libraryNumber = "USR1";
+        String passWord = "PSWRD1";
+        User user = new User("USR1", "PSWRD1", "user");
+        DelegatorFactory delegatorFactory = mock(DelegatorFactory.class);
+        MainMenuOptionDelegator mainMenuOptionDelegator = mock(LibrarianMainMenuOptionsDelegator.class);
+        MainMenuOption mainMenuOption = mock(MainMenuOption.class);
+        Authenticator authenticator = mock(Authenticator.class);
+        LoginOption loginOption = new LoginOption(console, library, movieStore, authenticator, delegatorFactory);
+
+        when(delegatorFactory.getMainMenuOptionDelegator(user)).thenReturn(mainMenuOptionDelegator);
+        when(console.getUserInput()).thenReturn(libraryNumber).thenReturn(passWord);
+        when(mainMenuOptionDelegator.getMainMenuOption(console, library, movieStore)).thenReturn(mainMenuOption);
+        when(authenticator.authenticate(libraryNumber, passWord)).thenReturn(user);
+
+        loginOption.doOperation();
+
+        verify(authenticator).authenticate(libraryNumber, passWord);
+        verify(delegatorFactory).getMainMenuOptionDelegator(user);
+        verify(mainMenuOptionDelegator).getMainMenuOption(console, library, movieStore);
+        verify(mainMenuOption).doOperation();
     }
 
 

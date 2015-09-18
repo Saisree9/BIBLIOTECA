@@ -6,7 +6,7 @@ public class LoginOption implements MainMenuOption {
     private Authenticator authenticator;
     private User user;
     private MovieStore movieStore;
-    DelegatorFactory delegatorFactory;
+    private DelegatorFactory delegatorFactory;
 
     public LoginOption(Console console, Library library, MovieStore movieStore, Authenticator authenticator, DelegatorFactory delegatorFactory) {
         this.console = console;
@@ -19,13 +19,13 @@ public class LoginOption implements MainMenuOption {
     @Override
     public void doOperation() {
         user = authenticateUserDetails();
-//        if (user != null) {
         MainMenuOptionDelegator mainMenuOptionDelegator = delegatorFactory.getMainMenuOptionDelegator(user);
         MainMenuOption mainMenuOption = mainMenuOptionDelegator.getMainMenuOption(console, library, movieStore);
         mainMenuOption.doOperation();
 
     }
-    public User authenticateUserDetails() {
+
+    private User authenticateUserDetails() {
         String libraryNumber = console.getUserInput();
         String passWord = console.getUserInput();
         return authenticator.authenticate(libraryNumber, passWord);
